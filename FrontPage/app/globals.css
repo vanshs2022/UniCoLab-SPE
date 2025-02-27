@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.page{
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+.landing{
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+.content{
+  p{
+    font-size: 2vw;
+  }
+}
+.hero{
+  height: 100vh;
+  width: 100vw;
+}
+
+#visual{
+  position:absolute;
+  bottom: 0%;
+  width: 100vw;
+}
+
+.mission{
+  height: 100vh;
+  width: 100vw;;
+  /* background-color: #ffffff;
+    background-color: #ededed;
+ */  background-color: #ededed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.miss-title{
+  color: #081b91;
+}
+.miss-para{
+  color: rgb(37, 37, 37);
+  font-size: 1.9vw;
+}
+.select{
+  background-color: #081a91;
+}
+.stackedcard{
+  background-color: #ededed;
+
+}
+.button{
+  background-color: #4d4c4c;
+}
+.faq{
+  background-color: #ededed;
+  color: black;
+}
+
+.contact{
+  height: 100vh;
+  width: 100vw;
+  background-color: #ededed;
+}
+
+.contact_button{
+  background-color: rgb(64, 106, 245);
+}
+
+.navbar {
+  height: 70px;
+  color: #ffffff;
+  width: 100vw;
+  background-color: #041230c0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* box-shadow: 100px 140px 180px rgb(255, 0, 0); Adds shadow at the bottom */
+  /* box-shadow: 0px 6px 10px rgb(255, 0, 0); */
+
+  
+}
+.nav_part1 {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav_part {
+  height: 100%;
+  width: 30%;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  align-items: center;
+
+  button {
+    color: #ffffff;
+    height: 40px;
+    width: 100px;
+    background-color: #3f52c2;
+    border-radius: 5px;
+  }
+}
+
+img {
+  height: 180px;
+  width: 180px;
+}
+.mission{
+  h1{
+      font-size: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
