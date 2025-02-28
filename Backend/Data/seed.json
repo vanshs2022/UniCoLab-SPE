@@ -1,0 +1,147 @@
+[
+    {
+      "name": "John Doe",
+      "username": "johndoe123@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/men/1.jpg",
+      "description": "Full Stack Developer passionate about building scalable applications.",
+      "skills": [
+        { "name": "JavaScript" },
+        { "name": "React" },
+        { "name": "Node.js" }
+      ],
+      "projects": {
+        "project1": "E-commerce Website",
+        "project2": "Portfolio Website"
+      },
+      "role": "Developer"
+    },
+    {
+      "name": "Jane Smith",
+      "username": "janesmith456@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/women/2.jpg",
+      "description": "UI/UX Designer focused on creating user-friendly interfaces.",
+      "skills": [
+        { "name": "Figma" },
+        { "name": "Adobe XD" },
+        { "name": "CSS" }
+      ],
+      "projects": {
+        "project1": "Mobile App Design",
+        "project2": "SaaS Dashboard UI"
+      },
+      "role": "Designer"
+    },
+    {
+      "name": "Michael Johnson",
+      "username": "michaelj789@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/men/3.jpg",
+      "description": "Data Scientist specializing in AI and ML.",
+      "skills": [
+        { "name": "Python" },
+        { "name": "TensorFlow" },
+        { "name": "SQL" }
+      ],
+      "projects": {
+        "project1": "AI Chatbot",
+        "project2": "Data Visualization Tool"
+      },
+      "role": "Data Scientist"
+    },
+    {
+      "name": "Emily Davis",
+      "username": "emilyd23@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/women/4.jpg",
+      "description": "Software Engineer with a focus on backend development.",
+      "skills": [
+        { "name": "Java" },
+        { "name": "Spring Boot" },
+        { "name": "MongoDB" }
+      ],
+      "projects": {
+        "project1": "Inventory Management System",
+        "project2": "API Gateway Service"
+      },
+      "role": "Backend Developer"
+    },
+    {
+      "name": "David Martinez",
+      "username": "davidm567@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/men/5.jpg",
+      "description": "Cloud Engineer with expertise in AWS and Kubernetes.",
+      "skills": [
+        { "name": "AWS" },
+        { "name": "Docker" },
+        { "name": "Kubernetes" }
+      ],
+      "projects": {
+        "project1": "CI/CD Pipeline",
+        "project2": "Cloud Migration Strategy"
+      },
+      "role": "Cloud Engineer"
+    },
+    {
+      "name": "Sophia Wilson",
+      "username": "sophiaw999@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/women/6.jpg",
+      "description": "Cybersecurity Analyst securing networks and applications.",
+      "skills": [
+        { "name": "Penetration Testing" },
+        { "name": "Network Security" },
+        { "name": "Firewalls" }
+      ],
+      "projects": {
+        "project1": "Security Audit System",
+        "project2": "Threat Detection Model"
+      },
+      "role": "Security Analyst"
+    },
+    {
+      "name": "Olivia Brown",
+      "username": "oliviab123@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/women/7.jpg",
+      "description": "Frontend Developer creating stunning user interfaces.",
+      "skills": [
+        { "name": "HTML" },
+        { "name": "CSS" },
+        { "name": "JavaScript" }
+      ],
+      "projects": {
+        "project1": "Landing Page Design",
+        "project2": "React Dashboard"
+      },
+      "role": "Frontend Developer"
+    },
+    {
+      "name": "Liam Harris",
+      "username": "liamh987@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/men/8.jpg",
+      "description": "DevOps Engineer automating cloud deployments.",
+      "skills": [
+        { "name": "Terraform" },
+        { "name": "Jenkins" },
+        { "name": "AWS" }
+      ],
+      "projects": {
+        "project1": "Infrastructure as Code",
+        "project2": "Automated Deployment Pipeline"
+      },
+      "role": "DevOps Engineer"
+    },
+    {
+      "name": "Ethan Scott",
+      "username": "ethanscott789@gmail.com",
+      "profilePic": "https://randomuser.me/api/portraits/men/9.jpg",
+      "description": "AI Researcher working on NLP and Computer Vision.",
+      "skills": [
+        { "name": "PyTorch" },
+        { "name": "OpenCV" },
+        { "name": "Deep Learning" }
+      ],
+      "projects": {
+        "project1": "Speech Recognition System",
+        "project2": "Image Segmentation Model"
+      },
+      "role": "AI Researcher"
+    }
+  ]
+  

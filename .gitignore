@@ -1,8 +1,5 @@
 # Ignore node_modules folder
 Backend/node_modules/
 
-# Ignore Data folder
-Backend/Data/
-
 #Ignore env folder
 Backend/.env
