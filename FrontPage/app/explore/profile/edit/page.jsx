@@ -8,6 +8,7 @@ export default function ProfileForm() {
     username: "",
     profilePic: "",
     description: "",
+    githubLink: "",
     skills: [{ name: "" }],
     projects: { project1: "", project2: "" },
     role: "",
@@ -52,11 +53,15 @@ export default function ProfileForm() {
       <h2 className="text-2xl font-bold mb-4">Profile Form</h2>
       
       <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className="w-full p-2 mb-2 border rounded" required />
-            
+
+      <input type="email" name="username" placeholder="email id" value={formData.username} onChange={handleChange} className="w-full p-2 mb-2 border rounded" required/>
+
       <input type="url" name="profilePic" placeholder="Profile Pic URL" value={formData.profilePic} onChange={handleChange} className="w-full p-2 mb-2 border rounded" />
       
       <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange} className="w-full p-2 mb-2 border rounded"></textarea>
       
+      <input type="url" name="githubLink" placeholder="Github URL" value={formData.githubLink} onChange={handleChange} className="w-full p-2 mb-2 border rounded" />
+
       {/* Skills */}
       <label>Skills:</label>
       {formData.skills.map((skill, index) => (
