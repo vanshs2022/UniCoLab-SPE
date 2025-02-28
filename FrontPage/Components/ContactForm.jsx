@@ -35,6 +35,7 @@ const ContactForm = () => {
       });
 
       const data = await response.json();
+      console.log("response recieved");
       if (response.ok) {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });

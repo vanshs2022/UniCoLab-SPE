@@ -1,33 +1,32 @@
-const http = require("http");
 const nodemailer = require("nodemailer");
+require("dotenv").config(); 
 
-const sendMail = http.createServer((req, res) => {
-    const sender = nodemailer.createTransport({
-        service: "gmail",
-        secure : true,
-        port : 465,
-        auth: {
-            user: "youremail@gmail.com",
-            pass: "your_password"
+const sendMail = async (req, res) => {
+    try {
+        const sender = nodemailer.createTransport({
+            service: "gmail",
+            secure: true,
+            port: 465,
+            auth: {
+                user: process.env.EMAIL_USER, 
+                pass: process.env.EMAIL_PASS  
+            }
+        });
 
-        }
-    });
+        const receiver = {
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
+            subject: `Query from ${req.body.name}`,
+            text: `Mail id: ${req.body.email}\n\nMessage: \n${req.body.message} `
+        };
 
-    const receiver = {
-        from : "youremail@gmail.com",
-        to : "youremail@gmail.com",
-        subject : "Node Js Mail Testing!",
-        text : "Hello this is a text mail!"
-    };
+        const emailResponse = await sender.sendMail(receiver);
+        
+        return res.status(200).json({ message: "Email sent successfully!" });
+    } catch (err) {
+        console.error("Error sending email:", err);
+        return res.status(500).json({ message: "Error sending email", error: err.message });
+    }
+};
 
-    sender.sendMail(receiver, (err, emailResponse) => {
-        if(err)
-        throw err;
-        console.log("success!");
-        res.status(200).json({ message: 'Message received!' });
-        res.end();
-    });
-    
-});
-
-module.exports = sendMail;
+module.exports = { sendMail };
