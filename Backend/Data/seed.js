@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
-const Profile = require("../models/ProfileModel"); // Adjust path to your model file
-const profilesData = require("./seed.json"); // Adjust path to JSON file
+const Profile = require("../models/ProfileModel");
+const profilesData = require("./seed.json");
 
-// Connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/profile", {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -10,10 +9,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/profile", {
     console.log("Connected to MongoDB...");
 }).catch(err => console.log("Connection error:", err));
 
-// Insert Data
 const seedDB = async () => {
     try {
-        await Profile.deleteMany({}); // Clears old data (optional)
+        await Profile.deleteMany({});
         await Profile.insertMany(profilesData);
         console.log("Data successfully inserted!");
     } catch (error) {

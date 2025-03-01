@@ -8,21 +8,31 @@ export default function ProfileForm() {
     username: "",
     profilePic: "",
     description: "",
-    skills: [{ name: "" }],
+    githubLink: "",
+    skills: [], // Changed to an array of strings instead of objects
     projects: { project1: "", project2: "" },
     role: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [skillInput, setSkillInput] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSkillChange = (index, value) => {
-    const newSkills = [...formData.skills];
-    newSkills[index].name = value;
-    setFormData({ ...formData, skills: newSkills });
+  const handleSkillAdd = () => {
+    if (skillInput.trim() !== "" && !formData.skills.includes(skillInput)) {
+      setFormData({ ...formData, skills: [...formData.skills, skillInput] });
+      setSkillInput("");
+    }
+  };
+
+  const handleSkillRemove = (skillName) => {
+    setFormData({
+      ...formData,
+      skills: formData.skills.filter((skill) => skill !== skillName),
+    });
   };
 
   const handleProjectChange = (key, value) => {
@@ -48,32 +58,122 @@ export default function ProfileForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 border rounded shadow">
-      <h2 className="text-2xl font-bold mb-4">Profile Form</h2>
-      
-      <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className="w-full p-2 mb-2 border rounded" required />
-            
-      <input type="url" name="profilePic" placeholder="Profile Pic URL" value={formData.profilePic} onChange={handleChange} className="w-full p-2 mb-2 border rounded" />
-      
-      <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange} className="w-full p-2 mb-2 border rounded"></textarea>
-      
-      {/* Skills */}
-      <label>Skills:</label>
-      {formData.skills.map((skill, index) => (
-        <div key={index} className="flex mb-2">
-          <input type="text" placeholder="Skill" value={skill.name} onChange={(e) => handleSkillChange(index, e.target.value)} className="w-full p-2 border rounded" required />
+    <div className="flex justify-center items-center min-h-screen bg-black p-6">
+      <form onSubmit={handleSubmit} className="w-full max-w-xl bg-black bg-opacity-80 p-6 rounded-2xl shadow-xl border border-blue-500 transform transition duration-500 hover:scale-105">
+        <h2 className="text-3xl font-bold text-center text-blue-400 mb-6">Create Your Profile</h2>
+
+        {/* Profile Pic */}
+        <div className="flex flex-col items-center mb-4">
+          {formData.profilePic && (
+            <img src={formData.profilePic} alt="Profile Preview" className="w-24 h-24 rounded-full shadow-md border-2 border-blue-500 mb-2" />
+          )}
+          <input
+            type="url"
+            name="profilePic"
+            placeholder="Profile Pic URL"
+            value={formData.profilePic}
+            onChange={handleChange}
+            className="w-full p-2 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          />
         </div>
-      ))}
-      <button type="button" onClick={() => setFormData({ ...formData, skills: [...formData.skills, { name: "" }] })} className="mb-2 p-2 border rounded bg-blue-500 text-white">Add Skill</button>
-      
-      {/* Projects */}
-      <label>Projects:</label>
-      <input type="text" placeholder="Project 1" value={formData.projects.project1} onChange={(e) => handleProjectChange("project1", e.target.value)} className="w-full p-2 mb-2 border rounded" />
-      <input type="text" placeholder="Project 2" value={formData.projects.project2} onChange={(e) => handleProjectChange("project2", e.target.value)} className="w-full p-2 mb-2 border rounded" />
-      
-      <input type="text" name="role" placeholder="Role" value={formData.role} onChange={handleChange} className="w-full p-2 mb-2 border rounded" />
-      
-      <button type="submit" className="w-full p-2 bg-green-500 text-white rounded">Submit</button>
-    </form>
+
+        {/* Name */}
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full p-3 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          required
+        />
+
+        {/* GitHub URL */}
+        <input
+          type="url"
+          name="githubLink"
+          placeholder="GitHub URL"
+          value={formData.githubLink}
+          onChange={handleChange}
+          className="w-full p-3 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+
+        {/* Description */}
+        <textarea
+          name="description"
+          placeholder="Tell us about yourself..."
+          value={formData.description}
+          onChange={handleChange}
+          className="w-full p-3 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+        ></textarea>
+
+        {/* Skills */}
+        <label className="block text-blue-400 font-semibold mb-2">Skills:</label>
+        <div className="flex items-center gap-2 mb-3">
+          <input
+            type="text"
+            placeholder="Add a skill"
+            value={skillInput}
+            onChange={(e) => setSkillInput(e.target.value)}
+            className="w-full p-2 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          />
+          <button
+            type="button"
+            onClick={handleSkillAdd}
+            className="p-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300"
+          >
+            Add
+          </button>
+        </div>
+
+        {/* Display Added Skills as Bubbles */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          {formData.skills.map((skill, index) => (
+            <span key={index} className="bg-blue-500 text-white px-3 py-1 rounded-full flex items-center gap-2">
+              {skill}
+              <button
+                type="button"
+                onClick={() => handleSkillRemove(skill)}
+                className="text-black bg-white rounded-full px-2 py-0.5 text-xs hover:bg-red-500 hover:text-white transition duration-300"
+              >
+                ×
+              </button>
+            </span>
+          ))}
+        </div>
+
+        {/* Projects */}
+        <label className="block text-blue-400 font-semibold mb-2">Projects:</label>
+        <input
+          type="text"
+          placeholder="Project 1"
+          value={formData.projects.project1}
+          onChange={(e) => handleProjectChange("project1", e.target.value)}
+          className="w-full p-2 mb-2 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+        <input
+          type="text"
+          placeholder="Project 2"
+          value={formData.projects.project2}
+          onChange={(e) => handleProjectChange("project2", e.target.value)}
+          className="w-full p-2 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+
+        {/* Role */}
+        <input
+          type="text"
+          name="role"
+          placeholder="Role (e.g., Developer, Designer)"
+          value={formData.role}
+          onChange={handleChange}
+          className="w-full p-2 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+
+        {/* Submit Button */}
+        <button type="submit" className="w-full p-3 bg-blue-500 text-white font-bold rounded-lg shadow-lg hover:bg-blue-600 transition duration-300">
+          Submit Profile
+        </button>
+      </form>
+    </div>
   );
 }

@@ -6,6 +6,7 @@ const profileSchema = new mongoose.Schema({
     username: String,
     profilePic: String,
     description: String,
+    githubLink: String, 
     skills: [
         {
             name: { type: String, required: true },

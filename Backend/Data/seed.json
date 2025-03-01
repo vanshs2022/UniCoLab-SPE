@@ -1,147 +1,262 @@
 [
-    {
-      "name": "John Doe",
-      "username": "johndoe123@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/men/1.jpg",
-      "description": "Full Stack Developer passionate about building scalable applications.",
-      "skills": [
-        { "name": "JavaScript" },
-        { "name": "React" },
-        { "name": "Node.js" }
-      ],
-      "projects": {
-        "project1": "E-commerce Website",
-        "project2": "Portfolio Website"
-      },
-      "role": "Developer"
+  {
+    "name": "Alice Johnson",
+    "username": "alice.johnson@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/1.jpg",
+    "description": "Full Stack Developer passionate about modern web technologies.",
+    "githubLink": "https://github.com/alicejohnson",
+    "skills": [{"name": "React"}, {"name": "Node.js"}, {"name": "MongoDB"}],
+    "projects": {
+      "project1": "https://aliceproject1.com",
+      "project2": "https://aliceproject2.com"
     },
-    {
-      "name": "Jane Smith",
-      "username": "janesmith456@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/women/2.jpg",
-      "description": "UI/UX Designer focused on creating user-friendly interfaces.",
-      "skills": [
-        { "name": "Figma" },
-        { "name": "Adobe XD" },
-        { "name": "CSS" }
-      ],
-      "projects": {
-        "project1": "Mobile App Design",
-        "project2": "SaaS Dashboard UI"
-      },
-      "role": "Designer"
+    "role": "Full Stack Developer"
+  },
+  {
+    "name": "Bob Smith",
+    "username": "bob.smith@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/2.jpg",
+    "description": "Backend Engineer specializing in distributed systems.",
+    "githubLink": "https://github.com/bobsmith",
+    "skills": [{"name": "Python"}, {"name": "Django"}, {"name": "PostgreSQL"}],
+    "projects": {
+      "project1": "https://bobproject1.com",
+      "project2": "https://bobproject2.com"
     },
-    {
-      "name": "Michael Johnson",
-      "username": "michaelj789@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/men/3.jpg",
-      "description": "Data Scientist specializing in AI and ML.",
-      "skills": [
-        { "name": "Python" },
-        { "name": "TensorFlow" },
-        { "name": "SQL" }
-      ],
-      "projects": {
-        "project1": "AI Chatbot",
-        "project2": "Data Visualization Tool"
-      },
-      "role": "Data Scientist"
+    "role": "Backend Engineer"
+  },
+  {
+    "name": "Charlie Davis",
+    "username": "charlie.davis@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/3.jpg",
+    "description": "Frontend Developer with a love for UI/UX design.",
+    "githubLink": "https://github.com/charliedavis",
+    "skills": [{"name": "Vue.js"}, {"name": "CSS"}, {"name": "Tailwind"}],
+    "projects": {
+      "project1": "https://charlieproject1.com",
+      "project2": "https://charlieproject2.com"
     },
-    {
-      "name": "Emily Davis",
-      "username": "emilyd23@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/women/4.jpg",
-      "description": "Software Engineer with a focus on backend development.",
-      "skills": [
-        { "name": "Java" },
-        { "name": "Spring Boot" },
-        { "name": "MongoDB" }
-      ],
-      "projects": {
-        "project1": "Inventory Management System",
-        "project2": "API Gateway Service"
-      },
-      "role": "Backend Developer"
+    "role": "Frontend Developer"
+  },
+  {
+    "name": "David Lee",
+    "username": "david.lee@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/4.jpg",
+    "description": "DevOps Engineer focused on automation and cloud solutions.",
+    "githubLink": "https://github.com/davidlee",
+    "skills": [{"name": "AWS"}, {"name": "Terraform"}, {"name": "Docker"}],
+    "projects": {
+      "project1": "https://davidproject1.com",
+      "project2": "https://davidproject2.com"
     },
-    {
-      "name": "David Martinez",
-      "username": "davidm567@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/men/5.jpg",
-      "description": "Cloud Engineer with expertise in AWS and Kubernetes.",
-      "skills": [
-        { "name": "AWS" },
-        { "name": "Docker" },
-        { "name": "Kubernetes" }
-      ],
-      "projects": {
-        "project1": "CI/CD Pipeline",
-        "project2": "Cloud Migration Strategy"
-      },
-      "role": "Cloud Engineer"
+    "role": "DevOps Engineer"
+  },
+  {
+    "name": "Evelyn White",
+    "username": "evelyn.white@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/5.jpg",
+    "description": "Data Scientist specializing in machine learning.",
+    "githubLink": "https://github.com/evelynwhite",
+    "skills": [{"name": "Python"}, {"name": "Pandas"}, {"name": "TensorFlow"}],
+    "projects": {
+      "project1": "https://evelynproject1.com",
+      "project2": "https://evelynproject2.com"
     },
-    {
-      "name": "Sophia Wilson",
-      "username": "sophiaw999@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/women/6.jpg",
-      "description": "Cybersecurity Analyst securing networks and applications.",
-      "skills": [
-        { "name": "Penetration Testing" },
-        { "name": "Network Security" },
-        { "name": "Firewalls" }
-      ],
-      "projects": {
-        "project1": "Security Audit System",
-        "project2": "Threat Detection Model"
-      },
-      "role": "Security Analyst"
+    "role": "Data Scientist"
+  },
+  {
+    "name": "Franklin Carter",
+    "username": "franklin.carter@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/6.jpg",
+    "description": "Cybersecurity expert with a passion for ethical hacking.",
+    "githubLink": "https://github.com/franklincarter",
+    "skills": [{"name": "Kali Linux"}, {"name": "Networking"}, {"name": "Python"}],
+    "projects": {
+      "project1": "https://franklinproject1.com",
+      "project2": "https://franklinproject2.com"
     },
-    {
-      "name": "Olivia Brown",
-      "username": "oliviab123@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/women/7.jpg",
-      "description": "Frontend Developer creating stunning user interfaces.",
-      "skills": [
-        { "name": "HTML" },
-        { "name": "CSS" },
-        { "name": "JavaScript" }
-      ],
-      "projects": {
-        "project1": "Landing Page Design",
-        "project2": "React Dashboard"
-      },
-      "role": "Frontend Developer"
+    "role": "Cybersecurity Engineer"
+  },
+  {
+    "name": "Grace Mitchell",
+    "username": "grace.mitchell@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/7.jpg",
+    "description": "Cloud Engineer working with AWS and Kubernetes.",
+    "githubLink": "https://github.com/gracemitchell",
+    "skills": [{"name": "AWS"}, {"name": "Kubernetes"}, {"name": "Terraform"}],
+    "projects": {
+      "project1": "https://graceproject1.com",
+      "project2": "https://graceproject2.com"
     },
-    {
-      "name": "Liam Harris",
-      "username": "liamh987@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/men/8.jpg",
-      "description": "DevOps Engineer automating cloud deployments.",
-      "skills": [
-        { "name": "Terraform" },
-        { "name": "Jenkins" },
-        { "name": "AWS" }
-      ],
-      "projects": {
-        "project1": "Infrastructure as Code",
-        "project2": "Automated Deployment Pipeline"
-      },
-      "role": "DevOps Engineer"
+    "role": "Cloud Engineer"
+  },
+  {
+    "name": "Henry Adams",
+    "username": "henry.adams@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/8.jpg",
+    "description": "Software Engineer with a focus on mobile app development.",
+    "githubLink": "https://github.com/henryadams",
+    "skills": [{"name": "Flutter"}, {"name": "Dart"}, {"name": "Firebase"}],
+    "projects": {
+      "project1": "https://henryproject1.com",
+      "project2": "https://henryproject2.com"
     },
-    {
-      "name": "Ethan Scott",
-      "username": "ethanscott789@gmail.com",
-      "profilePic": "https://randomuser.me/api/portraits/men/9.jpg",
-      "description": "AI Researcher working on NLP and Computer Vision.",
-      "skills": [
-        { "name": "PyTorch" },
-        { "name": "OpenCV" },
-        { "name": "Deep Learning" }
-      ],
-      "projects": {
-        "project1": "Speech Recognition System",
-        "project2": "Image Segmentation Model"
-      },
-      "role": "AI Researcher"
-    }
-  ]
-  
+    "role": "Mobile Developer"
+  },
+  {
+    "name": "Isla Bennett",
+    "username": "isla.bennett@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/9.jpg",
+    "description": "Machine Learning Engineer with experience in NLP.",
+    "githubLink": "https://github.com/islabennett",
+    "skills": [{"name": "Python"}, {"name": "NLP"}, {"name": "PyTorch"}],
+    "projects": {
+      "project1": "https://islaproject1.com",
+      "project2": "https://islaproject2.com"
+    },
+    "role": "Machine Learning Engineer"
+  },
+  {
+    "name": "Jack Wilson",
+    "username": "jack.wilson@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/10.jpg",
+    "description": "Blockchain Developer with experience in Solidity.",
+    "githubLink": "https://github.com/jackwilson",
+    "skills": [{"name": "Solidity"}, {"name": "Ethereum"}, {"name": "Web3.js"}],
+    "projects": {
+      "project1": "https://jackproject1.com",
+      "project2": "https://jackproject2.com"
+    },
+    "role": "Blockchain Developer"
+  },
+  {
+    "name": "Kate Morgan",
+    "username": "kate.morgan@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/11.jpg",
+    "description": "Software Engineer specializing in Java development.",
+    "githubLink": "https://github.com/katemorgan",
+    "skills": [{"name": "Java"}, {"name": "Spring Boot"}, {"name": "Microservices"}],
+    "projects": {
+      "project1": "https://kateproject1.com",
+      "project2": "https://kateproject2.com"
+    },
+    "role": "Software Engineer"
+  },
+  {
+    "name": "Liam Parker",
+    "username": "liam.parker@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/12.jpg",
+    "description": "AI Engineer developing deep learning models.",
+    "githubLink": "https://github.com/liamparker",
+    "skills": [{"name": "Deep Learning"}, {"name": "TensorFlow"}, {"name": "Python"}],
+    "projects": {
+      "project1": "https://liamproject1.com",
+      "project2": "https://liamproject2.com"
+    },
+    "role": "AI Engineer"
+  },
+  {
+    "name": "Mia Thompson",
+    "username": "mia.thompson@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/13.jpg",
+    "description": "Frontend Developer with an eye for detail.",
+    "githubLink": "https://github.com/miathompson",
+    "skills": [{"name": "HTML"}, {"name": "CSS"}, {"name": "JavaScript"}],
+    "projects": {
+      "project1": "https://miaproject1.com",
+      "project2": "https://miaproject2.com"
+    },
+    "role": "Frontend Developer"
+  },
+  {
+    "name": "Noah Reynolds",
+    "username": "noah.reynolds@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/14.jpg",
+    "description": "Cloud Security Specialist ensuring safe cloud deployments.",
+    "githubLink": "https://github.com/noahreynolds",
+    "skills": [{"name": "AWS Security"}, {"name": "IAM"}, {"name": "Encryption"}],
+    "projects": {
+      "project1": "https://noahproject1.com",
+      "project2": "https://noahproject2.com"
+    },
+    "role": "Cloud Security Engineer"
+  },
+  {
+    "name": "Olivia Martinez",
+    "username": "olivia.martinez@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/15.jpg",
+    "description": "iOS Developer passionate about Swift and UI/UX.",
+    "githubLink": "https://github.com/oliviamartinez",
+    "skills": [{"name": "Swift"}, {"name": "Xcode"}, {"name": "iOS Development"}],
+    "projects": {
+      "project1": "https://oliviaproject1.com",
+      "project2": "https://oliviaproject2.com"
+    },
+    "role": "iOS Developer"
+  },
+  {
+    "name": "Peter Collins",
+    "username": "peter.collins@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/16.jpg",
+    "description": "Big Data Engineer handling large-scale data processing.",
+    "githubLink": "https://github.com/petercollins",
+    "skills": [{"name": "Hadoop"}, {"name": "Spark"}, {"name": "Kafka"}],
+    "projects": {
+      "project1": "https://peterproject1.com",
+      "project2": "https://peterproject2.com"
+    },
+    "role": "Big Data Engineer"
+  },
+  {
+    "name": "Quinn Roberts",
+    "username": "quinn.roberts@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/17.jpg",
+    "description": "Game Developer creating immersive experiences.",
+    "githubLink": "https://github.com/quinnroberts",
+    "skills": [{"name": "Unity"}, {"name": "C#"}, {"name": "Unreal Engine"}],
+    "projects": {
+      "project1": "https://quinnproject1.com",
+      "project2": "https://quinnproject2.com"
+    },
+    "role": "Game Developer"
+  },
+  {
+    "name": "Ryan Edwards",
+    "username": "ryan.edwards@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/18.jpg",
+    "description": "Blockchain Architect designing secure DApps.",
+    "githubLink": "https://github.com/ryanedwards",
+    "skills": [{"name": "Solidity"}, {"name": "Ethereum"}, {"name": "Smart Contracts"}],
+    "projects": {
+      "project1": "https://ryanproject1.com",
+      "project2": "https://ryanproject2.com"
+    },
+    "role": "Blockchain Architect"
+  },
+  {
+    "name": "Sophia Walker",
+    "username": "sophia.walker@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/women/19.jpg",
+    "description": "Automation Engineer building CI/CD pipelines.",
+    "githubLink": "https://github.com/sophiawalker",
+    "skills": [{"name": "Jenkins"}, {"name": "GitHub Actions"}, {"name": "Ansible"}],
+    "projects": {
+      "project1": "https://sophiaproject1.com",
+      "project2": "https://sophiaproject2.com"
+    },
+    "role": "Automation Engineer"
+  },
+  {
+    "name": "Tyler Scott",
+    "username": "tyler.scott@example.com",
+    "profilePic": "https://randomuser.me/api/portraits/men/20.jpg",
+    "description": "Software Architect specializing in system design.",
+    "githubLink": "https://github.com/tylerscott",
+    "skills": [{"name": "Microservices"}, {"name": "Docker"}, {"name": "Kubernetes"}],
+    "projects": {
+      "project1": "https://tylerproject1.com",
+      "project2": "https://tylerproject2.com"
+    },
+    "role": "Software Architect"
+  }
+]
