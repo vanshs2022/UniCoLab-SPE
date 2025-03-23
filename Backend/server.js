@@ -68,18 +68,28 @@ app.post('/api/login', async (req, res) => {
 app.post('/api/contact', sendMail);
 
 // profile edit and create request
+// Auth functionality yet to be added
 app.post('/api/profile/edit', async (req, res) => {
   try {
-    console.log('Received form data', req.body);
+    console.log('Received form data');
     req.body.skills = req.body.skills.map(skill => ({ name: skill }));
-    const profile = new Profile({ ...req.body, userId: req.user.id });
+
+    const profile = new Profile(req.body);
     await profile.save();
-    res.status(200).json({ message: 'Profile updated successfully!' });
+    
+    console.log('Form data Saved');
+    res.status(200).json({ 
+      message: 'Message recieved!',
+      profileId: profile._id // Send the ID back
+    });
+    
+    console.log('Response sent');
   } catch (err) {
     console.error('Error saving profile:', err);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+
 
 // profile display and filteration
 app.get('/api/profile', async (req, res) => {
