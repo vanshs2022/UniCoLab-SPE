@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function ProfileForm() {
+<<<<<<< HEAD
   const router = useRouter();
+=======
+  const router = useRouter(); // Fix: Define router properly
+>>>>>>> 49cebcf93ff01d0fe7c26a9d8e535b43bf81a2bc
 
   const initialFormData = {
     name: "",
@@ -52,6 +56,7 @@ export default function ProfileForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+<<<<<<< HEAD
   
       const result = await response.json();
       console.log("Response from backend:", result);
@@ -59,6 +64,16 @@ export default function ProfileForm() {
       if (result.message === "Message recieved!" && result.profileId) {
         router.push(`/explore/profile/${result.profileId}`);
         
+=======
+
+      const result = await response.json();
+      console.log("Response from backend:", result);
+
+      if (result.message === "Message recieved!" && result.profileId) {
+        router.push(`/explore/profile/${result.profileId}`); // Fix: Use push instead of redirect
+
+        // Reset form after successful submission
+>>>>>>> 49cebcf93ff01d0fe7c26a9d8e535b43bf81a2bc
         setFormData(initialFormData);
         setSkillInput("");
         setFormKey((prevKey) => prevKey + 1);

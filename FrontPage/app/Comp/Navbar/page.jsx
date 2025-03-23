@@ -5,7 +5,9 @@ const Page = () => {
   return (
     <div className='navbar'>
       <div className="nav_part1">
-        <img src="logo.png" alt="Logo" />
+        {/* <img src="logo.png" alt="Logo" /> */}
+        <img src="/logo.png" alt="Logo" />
+
         <Link href="/">Home</Link>
         <Link href="/explore/profile/edit">Create Profile</Link>
       </div>
