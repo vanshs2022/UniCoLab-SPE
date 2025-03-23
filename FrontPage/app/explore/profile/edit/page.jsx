@@ -1,21 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ProfileForm() {
+  const router = useRouter(); // Fix: Define router properly
+
   const initialFormData = {
     name: "",
     username: "",
     profilePic: "",
     description: "",
     githubLink: "",
-    skills: [], // Changed to an array of strings instead of objects
+    skills: [],
     projects: { project1: "", project2: "" },
     role: "",
+    resume: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
   const [skillInput, setSkillInput] = useState("");
+  const [formKey, setFormKey] = useState(0); // Key to force rerender
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,10 +52,19 @@ export default function ProfileForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
       const result = await response.json();
-      console.log(result);
-      if (result.message === "Message received!") {
+      console.log("Response from backend:", result);
+
+      if (result.message === "Message recieved!" && result.profileId) {
+        router.push(`/explore/profile/${result.profileId}`); // Fix: Use push instead of redirect
+
+        // Reset form after successful submission
         setFormData(initialFormData);
+        setSkillInput("");
+        setFormKey((prevKey) => prevKey + 1);
+      } else {
+        console.error("Profile ID not returned from backend");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -59,13 +73,23 @@ export default function ProfileForm() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-black p-6">
-      <form onSubmit={handleSubmit} className="w-full max-w-xl bg-black bg-opacity-80 p-6 rounded-2xl shadow-xl border border-blue-500 transform transition duration-500 hover:scale-105">
-        <h2 className="text-3xl font-bold text-center text-blue-400 mb-6">Create Your Profile</h2>
+      <form
+        key={formKey}
+        onSubmit={handleSubmit}
+        className="w-full max-w-xl bg-black bg-opacity-80 p-6 rounded-2xl shadow-xl border border-blue-500 transform transition duration-500 hover:scale-105"
+      >
+        <h2 className="text-3xl font-bold text-center text-blue-400 mb-6">
+          Create Your Profile
+        </h2>
 
         {/* Profile Pic */}
         <div className="flex flex-col items-center mb-4">
           {formData.profilePic && (
-            <img src={formData.profilePic} alt="Profile Preview" className="w-24 h-24 rounded-full shadow-md border-2 border-blue-500 mb-2" />
+            <img
+              src={formData.profilePic}
+              alt="Profile Preview"
+              className="w-24 h-24 rounded-full shadow-md border-2 border-blue-500 mb-2"
+            />
           )}
           <input
             type="url"
@@ -129,7 +153,10 @@ export default function ProfileForm() {
         {/* Display Added Skills as Bubbles */}
         <div className="flex flex-wrap gap-2 mb-3">
           {formData.skills.map((skill, index) => (
-            <span key={index} className="bg-blue-500 text-white px-3 py-1 rounded-full flex items-center gap-2">
+            <span
+              key={index}
+              className="bg-blue-500 text-white px-3 py-1 rounded-full flex items-center gap-2"
+            >
               {skill}
               <button
                 type="button"
@@ -169,8 +196,23 @@ export default function ProfileForm() {
           className="w-full p-2 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
         />
 
+        {/* Resume URL */}
+        <div className="flex flex-col items-center mb-4">
+          <input
+            type="url"
+            name="resume"
+            placeholder="Resume URL"
+            value={formData.resume}
+            onChange={handleChange}
+            className="w-full p-2 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          />
+        </div>
+
         {/* Submit Button */}
-        <button type="submit" className="w-full p-3 bg-blue-500 text-white font-bold rounded-lg shadow-lg hover:bg-blue-600 transition duration-300">
+        <button
+          type="submit"
+          className="w-full p-3 bg-blue-500 text-white font-bold rounded-lg shadow-lg hover:bg-blue-600 transition duration-300"
+        >
           Submit Profile
         </button>
       </form>

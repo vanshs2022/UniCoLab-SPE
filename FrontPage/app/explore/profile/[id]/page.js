@@ -96,6 +96,19 @@ export default function ProfilePage() {
           </ul>
         </div>
 
+        {/* Resume Link */}
+        {user.resume && (
+          <div className="mt-4">
+            <Link
+              href={user.resume}
+              target="_blank"
+              className="text-blue-400 hover:underline"
+            >
+              Resume Link
+            </Link>
+          </div>
+        )}
+
         {/* Connect Button */}
         <a
           href={`https://mail.google.com/mail/?view=cm&fs=1&to=${user.username}`}

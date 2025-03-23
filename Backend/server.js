@@ -72,9 +72,9 @@ app.post('/api/profile/edit', async (req, res) => {
   try {
     console.log('Received form data', req.body);
     req.body.skills = req.body.skills.map(skill => ({ name: skill }));
-    const profile = new Profile({ ...req.body, userId: req.user.id });
+    const profile = new Profile(req.body);
     await profile.save();
-    res.status(200).json({ message: 'Profile updated successfully!' });
+    res.status(200).json({ message: 'Message recieved!', profileId: profile._id });
   } catch (err) {
     console.error('Error saving profile:', err);
     res.status(500).json({ message: 'Internal Server Error' });
