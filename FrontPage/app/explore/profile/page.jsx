@@ -2,16 +2,19 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link"; 
+import SquishyCard from "../../../Components/SquishyCard";
+import Navbar from "../../Comp/Navbar/page";
+import { DrawCircleText } from "../../../Components/DrawCircleText";
+import HoverDevCards from "../../../Components/HoverDevCards";
 
 export default function Profiles() {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchProfiles(filters) {
+    async function fetchProfiles() {
       try {
         const params = new URLSearchParams(window.location.search);
-        
         const filters = Object.fromEntries(params.entries());
 
         console.log("Extracted Filters:", filters);
@@ -32,32 +35,28 @@ export default function Profiles() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="text-white text-center text-lg">Loading...</p>;
   }
 
   if (!profiles.length) {
-    return <p>No profiles available</p>;
+    return <p className="text-white text-center text-lg">No profiles available</p>;
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    <div className="xplore bg-[#020825]">
+    <Navbar />
+    {/* <h1 className="text-white text-center text-2xl mt-6">Explore Profiles</h1> */}
+    <HoverDevCards />
+    <div className="profiles grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 p-6">
       {profiles.map((profile, index) => (
         <Link key={index} href={`/explore/profile/${profile._id}`} passHref>
-          <div className="p-4 border rounded-lg shadow-md w-96 cursor-pointer hover:bg-gray-100">
-            <h2 className="text-xl font-bold mb-2">{profile.name || "N/A"}</h2>
-            {profile.profilePic && (
-              <img
-                src={profile.profilePic}
-                alt="Profile"
-                className="w-20 h-20 rounded-full mt-2"
-              />
-            )}
-            <p>
-              <strong>Role:</strong> {profile.role || "N/A"}
-            </p>
-          </div>
+          {/* <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4"> */}
+            {/* <SquishyCard data = {profile} /> */}
+            <SquishyCard profile={profile} />
+          {/* </div> */}
         </Link>
       ))}
+    </div>
     </div>
   );
 }
