@@ -16,14 +16,14 @@ const HoverDevCards = () => {
     <div className="p-4">
       <p className="text-xl font-semibold mb-2">Search By Role:</p>
       <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center">
-        <Card title="Web Developer" subtitle="Crafting seamless digital experiences, one line of code at a time!" href="/explore/profile/web-developer" Icon={CgWebsite} />
-        <Card title="App Developer" subtitle="Turning ideas into interactive apps that fit right in your pocket!" href="/explore/profile/app-developer" Icon={MdDeveloperMode} />
-        <Card title="UI/UX Designer" subtitle="Designing intuitive and beautiful interfaces that users love!" href="/explore/profile/ui-ux-designer" Icon={FaFigma} />
-        <Card title="Cloud Computing" subtitle="Scaling businesses to new heights with the power of the cloud!" href="/explore/profile/cloud-computing" Icon={CiCloudOn} />
-        <Card title="Database Management" subtitle="Organizing data for efficiency, security, and speed!" href="/explore/profile/database-management" Icon={CiDatabase} />
-        <Card title="Machine Learning" subtitle="Training machines to think, predict, and innovate!" href="/explore/profile/machine-learning" Icon={BsClipboard2Data} />
-        <Card title="Hardware System" subtitle="Bridging the gap between software and the real world!" href="/explore/profile/hardware-system" Icon={IoHardwareChip } />
-        <Card title="AI Engineer" subtitle="Building intelligent systems that redefine possibilities!" href="/explore/profile/ai-engineer" Icon={FaRobot} />
+        <Card title="Web Developer" subtitle="Crafting seamless digital experiences, one line of code at a time!" href="/explore/profile?role=web+developer" Icon={CgWebsite} />
+        <Card title="App Developer" subtitle="Turning ideas into interactive apps that fit right in your pocket!" href="/explore/profile?role=app+developer" Icon={MdDeveloperMode} />
+        <Card title="UI/UX Designer" subtitle="Designing intuitive and beautiful interfaces that users love!" href="/explore/profile?role=ui+ux+designer" Icon={FaFigma} />
+        <Card title="Cloud Computing" subtitle="Scaling businesses to new heights with the power of the cloud!" href="/explore/profile?role=cloud+computing" Icon={CiCloudOn} />
+        <Card title="Database Management" subtitle="Organizing data for efficiency, security, and speed!" href="/explore/profile?role=database+management" Icon={CiDatabase} />
+        <Card title="Machine Learning" subtitle="Training machines to think, predict, and innovate!" href="/explore/profile?role=machine+learning" Icon={BsClipboard2Data} />
+        <Card title="Hardware System" subtitle="Bridging the gap between software and the real world!" href="/explore/profile?role=hardware+system" Icon={IoHardwareChip } />
+        <Card title="AI Engineer" subtitle="Building intelligent systems that redefine possibilities!" href="/explore/profile?role=machine+learning" Icon={FaRobot} />
       </div>
     </div>
   );
