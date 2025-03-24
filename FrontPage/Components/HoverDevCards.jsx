@@ -14,8 +14,10 @@ import { FaRobot } from "react-icons/fa";
 const HoverDevCards = () => {
   return (
     <div className="p-4">
-      <p className="text-xl font-semibold mb-2">Search By Role:</p>
-      <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center">
+      <p className="text-xl font-semibold mb-2">Search By Role </p>
+      
+      <div className="cards-profile grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center">
+        <Card title="ALL" subtitle="Explore all the roles again!" href="/explore/profile" Icon={FaRobot} />
         <Card title="Web Developer" subtitle="Crafting seamless digital experiences, one line of code at a time!" href="/explore/profile?role=web+developer" Icon={CgWebsite} />
         <Card title="App Developer" subtitle="Turning ideas into interactive apps that fit right in your pocket!" href="/explore/profile?role=app+developer" Icon={MdDeveloperMode} />
         <Card title="UI/UX Designer" subtitle="Designing intuitive and beautiful interfaces that users love!" href="/explore/profile?role=ui+ux+designer" Icon={FaFigma} />
@@ -23,7 +25,6 @@ const HoverDevCards = () => {
         <Card title="Database Management" subtitle="Organizing data for efficiency, security, and speed!" href="/explore/profile?role=database+management" Icon={CiDatabase} />
         <Card title="Machine Learning" subtitle="Training machines to think, predict, and innovate!" href="/explore/profile?role=machine+learning" Icon={BsClipboard2Data} />
         <Card title="Hardware System" subtitle="Bridging the gap between software and the real world!" href="/explore/profile?role=hardware+system" Icon={IoHardwareChip } />
-        <Card title="AI Engineer" subtitle="Building intelligent systems that redefine possibilities!" href="/explore/profile?role=machine+learning" Icon={FaRobot} />
       </div>
     </div>
   );
@@ -33,7 +34,7 @@ const Card = ({ title, subtitle, Icon, href }) => {
   return (
     <Link
       href={href}
-      className="w-full max-w-[200px] p-4 rounded border-[1px] border-slate-300 relative overflow-hidden group bg-white"
+      className="profile-card  p-4 rounded border-[1px] border-slate-300 relative overflow-hidden group bg-white"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-600 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300" />
 

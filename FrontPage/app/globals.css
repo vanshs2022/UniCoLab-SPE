@@ -277,3 +277,11 @@ footer {
 footer p {
   color: #8892b0;
 }
+.cards-profile{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.profile-card{
+  width: 18vw;
+  gap: 10px;
+}
