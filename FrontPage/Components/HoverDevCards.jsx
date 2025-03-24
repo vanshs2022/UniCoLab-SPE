@@ -1,25 +1,29 @@
+"use client";
 import React from "react";
+import Link from "next/link";
 import { FiCreditCard, FiMail, FiUser, FiUsers } from "react-icons/fi";
+import { MdDeveloperMode } from "react-icons/md";
+import { CgWebsite } from "react-icons/cg";
+import { CiCloudOn } from "react-icons/ci";
+import { FaFigma } from "react-icons/fa";
+import { CiDatabase } from "react-icons/ci";
+import { BsClipboard2Data } from "react-icons/bs";
+import { IoHardwareChip } from "react-icons/io5";
+import { FaRobot } from "react-icons/fa";
 
 const HoverDevCards = () => {
   return (
     <div className="p-4">
-      <p className="text-xl font-semibold mb-2">Search By Roles</p>
-      <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
-        <Card
-          title="Account"
-          subtitle="Manage profile"
-          href="#"
-          Icon={FiUser}
-        />
-        <Card title="Email" subtitle="Manage email" href="#" Icon={FiMail} />
-        <Card title="Team" subtitle="Manage team" href="#" Icon={FiUsers} />
-        <Card
-          title="Billing"
-          subtitle="Manage cards"
-          href="#"
-          Icon={FiCreditCard}
-        />
+      <p className="text-xl font-semibold mb-2">Search By Role:</p>
+      <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center">
+        <Card title="Web Developer" subtitle="Crafting seamless digital experiences, one line of code at a time!" href="/explore/profile/web-developer" Icon={CgWebsite} />
+        <Card title="App Developer" subtitle="Turning ideas into interactive apps that fit right in your pocket!" href="/explore/profile/app-developer" Icon={MdDeveloperMode} />
+        <Card title="UI/UX Designer" subtitle="Designing intuitive and beautiful interfaces that users love!" href="/explore/profile/ui-ux-designer" Icon={FaFigma} />
+        <Card title="Cloud Computing" subtitle="Scaling businesses to new heights with the power of the cloud!" href="/explore/profile/cloud-computing" Icon={CiCloudOn} />
+        <Card title="Database Management" subtitle="Organizing data for efficiency, security, and speed!" href="/explore/profile/database-management" Icon={CiDatabase} />
+        <Card title="Machine Learning" subtitle="Training machines to think, predict, and innovate!" href="/explore/profile/machine-learning" Icon={BsClipboard2Data} />
+        <Card title="Hardware System" subtitle="Bridging the gap between software and the real world!" href="/explore/profile/hardware-system" Icon={IoHardwareChip } />
+        <Card title="AI Engineer" subtitle="Building intelligent systems that redefine possibilities!" href="/explore/profile/ai-engineer" Icon={FaRobot} />
       </div>
     </div>
   );
@@ -27,9 +31,9 @@ const HoverDevCards = () => {
 
 const Card = ({ title, subtitle, Icon, href }) => {
   return (
-    <a
+    <Link
       href={href}
-      className="w-[20px] p-4 rounded border-[1px] border-slate-300 relative overflow-hidden group bg-white"
+      className="w-full max-w-[200px] p-4 rounded border-[1px] border-slate-300 relative overflow-hidden group bg-white"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-600 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300" />
 
@@ -41,7 +45,7 @@ const Card = ({ title, subtitle, Icon, href }) => {
       <p className="text-slate-400 group-hover:text-violet-200 relative z-10 duration-300">
         {subtitle}
       </p>
-    </a>
+    </Link>
   );
 };
 
