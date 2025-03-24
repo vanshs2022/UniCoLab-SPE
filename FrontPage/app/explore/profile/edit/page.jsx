@@ -41,7 +41,10 @@ export default function ProfileForm() {
   };
 
   const handleProjectChange = (key, value) => {
-    setFormData({ ...formData, projects: { ...formData.projects, [key]: value } });
+    setFormData({
+      ...formData,
+      projects: { ...formData.projects, [key]: value },
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -52,13 +55,13 @@ export default function ProfileForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       const result = await response.json();
       console.log("Response from backend:", result);
-  
+
       if (result.message === "Message recieved!" && result.profileId) {
         router.push(`/explore/profile/${result.profileId}`);
-        
+
         setFormData(initialFormData);
         setSkillInput("");
         setFormKey((prevKey) => prevKey + 1);
@@ -69,16 +72,15 @@ export default function ProfileForm() {
       console.error("Error submitting form:", error);
     }
   };
-  
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-black p-6">
+    <div className="flex justify-center items-center min-h-screen bg-[#0A1133] p-6">
       <form
         key={formKey}
         onSubmit={handleSubmit}
-        className="w-full max-w-xl bg-black bg-opacity-80 p-6 rounded-2xl shadow-xl border border-blue-500 transform transition duration-500 hover:scale-105"
+        className="w-full max-w-xl bg-[#0A1133] bg-opacity-90 p-6 rounded-2xl shadow-2xl border border-[#1A237E] transform transition duration-500 hover:bg-[#020324]"
       >
-        <h2 className="text-3xl font-bold text-center text-blue-400 mb-6">
+        <h2 className="text-3xl font-bold text-center text-[#ffffff] mb-6">
           Create Your Profile
         </h2>
 
@@ -88,7 +90,7 @@ export default function ProfileForm() {
             <img
               src={formData.profilePic}
               alt="Profile Preview"
-              className="w-24 h-24 rounded-full shadow-md border-2 border-blue-500 mb-2"
+              className="w-24 h-24 rounded-full shadow-md border-2 border-[#ffffff] mb-2"
             />
           )}
           <input
@@ -97,7 +99,7 @@ export default function ProfileForm() {
             placeholder="Profile Pic URL"
             value={formData.profilePic}
             onChange={handleChange}
-            className="w-full p-2 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full p-2 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           />
         </div>
 
@@ -108,7 +110,7 @@ export default function ProfileForm() {
           placeholder="Full Name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full p-3 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           required
         />
 
@@ -119,7 +121,7 @@ export default function ProfileForm() {
           placeholder="GitHub URL"
           value={formData.githubLink}
           onChange={handleChange}
-          className="w-full p-3 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
         />
 
         {/* Description */}
@@ -128,40 +130,39 @@ export default function ProfileForm() {
           placeholder="Tell us about yourself..."
           value={formData.description}
           onChange={handleChange}
-          className="w-full p-3 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
         ></textarea>
 
         {/* Skills */}
-        <label className="block text-blue-400 font-semibold mb-2">Skills:</label>
+        <label className="block text-[#ffffff] font-semibold mb-2">Skills</label>
         <div className="flex items-center gap-2 mb-3">
           <input
             type="text"
             placeholder="Add a skill"
             value={skillInput}
             onChange={(e) => setSkillInput(e.target.value)}
-            className="w-full p-2 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full p-2 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           />
           <button
             type="button"
             onClick={handleSkillAdd}
-            className="p-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300"
+            className="p-2 bg-[#ffffff] text-[#0A1133] font-semibold rounded-lg transition duration-300"
           >
             Add
           </button>
         </div>
 
-        {/* Display Added Skills as Bubbles */}
         <div className="flex flex-wrap gap-2 mb-3">
           {formData.skills.map((skill, index) => (
             <span
               key={index}
-              className="bg-blue-500 text-white px-3 py-1 rounded-full flex items-center gap-2"
+              className="bg-[#ffffff] text-[#0A1133] px-3 py-1 rounded-full flex items-center gap-2"
             >
               {skill}
               <button
                 type="button"
                 onClick={() => handleSkillRemove(skill)}
-                className="text-black bg-white rounded-full px-2 py-0.5 text-xs hover:bg-red-500 hover:text-white transition duration-300"
+                className="text-white bg-[#1A237E] rounded-full px-2 py-0.5 text-xs hover:bg-red-600 hover:text-white transition duration-300"
               >
                 ×
               </button>
@@ -170,31 +171,40 @@ export default function ProfileForm() {
         </div>
 
         {/* Projects */}
-        <label className="block text-blue-400 font-semibold mb-2">Projects:</label>
+        <label className="block text-[#ffffff] font-semibold mb-2">Projects</label>
         <input
           type="text"
           placeholder="Project 1"
           value={formData.projects.project1}
           onChange={(e) => handleProjectChange("project1", e.target.value)}
-          className="w-full p-2 mb-2 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full p-2 mb-2 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
         />
         <input
           type="text"
           placeholder="Project 2"
           value={formData.projects.project2}
           onChange={(e) => handleProjectChange("project2", e.target.value)}
-          className="w-full p-2 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full p-2 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
         />
 
-        {/* Role */}
-        <input
-          type="text"
+        {/* Role Dropdown */}
+        <label className="block text-[#ffffff] font-semibold mb-2">Role</label>
+        <select
           name="role"
-          placeholder="Role (e.g., Developer, Designer)"
           value={formData.role}
           onChange={handleChange}
-          className="w-full p-2 mb-3 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
-        />
+          className="w-full p-3 mb-4 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
+          required
+        >
+          <option value="" disabled>Select your role</option>
+          <option value="Web Developer">Web Developer</option>
+          <option value="App Developer">App Developer</option>
+          <option value="UI UX Designer">UI UX Designer</option>
+          <option value="Cloud Computing">Cloud Computing</option>
+          <option value="Database Management">Database Management</option>
+          <option value="Machine Learning">Machine Learning</option>
+          <option value="Hardware System">Hardware System</option>
+        </select>
 
         {/* Resume URL */}
         <div className="flex flex-col items-center mb-4">
@@ -204,14 +214,14 @@ export default function ProfileForm() {
             placeholder="Resume URL"
             value={formData.resume}
             onChange={handleChange}
-            className="w-full p-2 border border-blue-500 rounded-lg bg-black text-white focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full p-2 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           />
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full p-3 bg-blue-500 text-white font-bold rounded-lg shadow-lg hover:bg-blue-600 transition duration-300"
+          className="w-full p-3 bg-[#ffffff] text-[#0A1133] font-bold rounded-lg shadow-lg transition duration-300"
         >
           Submit Profile
         </button>
