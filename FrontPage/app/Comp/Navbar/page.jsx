@@ -12,8 +12,8 @@ const Page = () => {
         <Link href="/explore/profile/edit">Create Profile</Link>
       </div>
       <div className="nav_part">
-        <Link href="/login"><button>Log In</button></Link>
-        <Link href="/signup"><button>Sign Up</button></Link>
+        <Link href="auth/login"><button>Log In</button></Link>
+        <Link href="auth/signup"><button>Sign Up</button></Link>
       </div>
     </div>
   );
