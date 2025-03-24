@@ -23,24 +23,27 @@ async function main() {
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 
 // Signup Route
 app.post('/api/signup', async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, username, password } = req.body;
 
-    let user = await User.findOne({ email });
+    // Correcting the field name from email to username
+    let user = await User.findOne({ username });
     if (user) return res.status(400).json({ message: "User already exists" });
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    user = new User({ name, email, password: hashedPassword });
+    user = new User({ name, username, password: hashedPassword });
     await user.save();
+    console.log("User saved successfully");
 
     res.status(201).json({ message: "User registered successfully!" });
   } catch (error) {
-    console.error(error);
+    console.error("Signup Error:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -48,9 +51,9 @@ app.post('/api/signup', async (req, res) => {
 // Login Route
 app.post('/api/login', async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    let user = await User.findOne({ email });
+    let user = await User.findOne({ username });
     if (!user) return res.status(400).json({ message: "signup required" });
 
     const isMatch = await bcrypt.compare(password, user.password);

@@ -116,7 +116,7 @@
       "project1": "https://evelynproject1.com",
       "project2": "https://evelynproject2.com"
     },
-    "role": "Hardware/Embedded System",
+    "role": "Hardware System",
     "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
@@ -188,7 +188,7 @@
       "project1": "https://henryproject1.com",
       "project2": "https://henryproject2.com"
     },
-    "role": "Hardware/Embedded System",
+    "role": "Hardware System",
     "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
@@ -212,7 +212,7 @@
       "project1": "https://islaproject1.com",
       "project2": "https://islaproject2.com"
     },
-    "role": "Hardware/Embedded System",
+    "role": "Hardware System",
     "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
@@ -284,7 +284,7 @@
       "project1": "https://liamproject1.com",
       "project2": "https://liamproject2.com"
     },
-    "role": "Database Management",
+    "role": "Machine Learning",
     "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
@@ -452,7 +452,7 @@
       "project1": "https://sophiaproject1.com",
       "project2": "https://sophiaproject2.com"
     },
-    "role": "UI UX Designer",
+    "role": "Machine Learning",
     "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
@@ -476,7 +476,7 @@
       "project1": "https://tylerproject1.com",
       "project2": "https://tylerproject2.com"
     },
-    "role": "Database Management",
+    "role": "Machine Learning",
     "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   }
 ]
