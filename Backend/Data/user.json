@@ -1,0 +1,102 @@
+[
+    {
+        "name": "Alice Johnson",
+        "username": "alice.johnson@example.com",
+        "password": "30IYeDnh"
+    },
+    {
+        "name": "Bob Smith",
+        "username": "bob.smith@example.com",
+        "password": "7m0PuT9P"
+    },
+    {
+        "name": "Charlie Davis",
+        "username": "charlie.davis@example.com",
+        "password": "YXJt4zR6"
+    },
+    {
+        "name": "David Lee",
+        "username": "david.lee@example.com",
+        "password": "gwYNsyPA"
+    },
+    {
+        "name": "Evelyn White",
+        "username": "evelyn.white@example.com",
+        "password": "p0jZvmbu"
+    },
+    {
+        "name": "Franklin Carter",
+        "username": "franklin.carter@example.com",
+        "password": "8#P*hV$p"
+    },
+    {
+        "name": "Grace Mitchell",
+        "username": "grace.mitchell@example.com",
+        "password": "7LMxOtqZ"
+    },
+    {
+        "name": "Henry Adams",
+        "username": "henry.adams@example.com",
+        "password": "9DuVZa5X"
+    },
+    {
+        "name": "Isla Bennett",
+        "username": "isla.bennett@example.com",
+        "password": "JvImwuuo"
+    },
+    {
+        "name": "Jack Wilson",
+        "username": "jack.wilson@example.com",
+        "password": "HgLzemKA"
+    },
+    {
+        "name": "Kate Morgan",
+        "username": "kate.morgan@example.com",
+        "password": "q8Uv*2X0"
+    },
+    {
+        "name": "Liam Parker",
+        "username": "liam.parker@example.com",
+        "password": "*MA$Sl&W"
+    },
+    {
+        "name": "Mia Thompson",
+        "username": "mia.thompson@example.com",
+        "password": "1poy$RwD"
+    },
+    {
+        "name": "Noah Reynolds",
+        "username": "noah.reynolds@example.com",
+        "password": "r7eKo0a8"
+    },
+    {
+        "name": "Olivia Martinez",
+        "username": "olivia.martinez@example.com",
+        "password": "pBYqEynF"
+    },
+    {
+        "name": "Peter Collins",
+        "username": "peter.collins@example.com",
+        "password": "fd&lAq2T"
+    },
+    {
+        "name": "Quinn Roberts",
+        "username": "quinn.roberts@example.com",
+        "password": "F0MN3SPZ"
+    },
+    {
+        "name": "Ryan Edwards",
+        "username": "ryan.edwards@example.com",
+        "password": "XVVzZXxI"
+    },
+    {
+        "name": "Sophia Walker",
+        "username": "sophia.walker@example.com",
+        "password": "xV38$@Xu"
+    },
+    {
+        "name": "Tyler Scott",
+        "username": "tyler.scott@example.com",
+        "password": "YrP4dtB7"
+    }
+]

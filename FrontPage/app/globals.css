@@ -90,7 +90,7 @@ body {
 .navbar {
   height: 70px;
   color: #ffffff;
-  width: 100vw;
+  width: 100%;
   background-color: #041230c0;
   display: flex;
   align-items: center;
@@ -111,7 +111,7 @@ body {
 
 .nav_part {
   height: 100%;
-  width: 30%;
+  width: 20%;
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -140,4 +140,17 @@ img {
       justify-content: center;
       align-items: center;
   }
+}
+.explore{
+  width: 100vw;
+  height: fit-content;
+}
+.profiles{
+  background-color: #020825;
+}
+.connect{
+  font-size: larger;
+}
+.talent{
+  font-size: smaller;
 }

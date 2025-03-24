@@ -5,12 +5,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/1.jpg",
     "description": "Full Stack Developer passionate about modern web technologies.",
     "githubLink": "https://github.com/alicejohnson",
-    "skills": [{"name": "React"}, {"name": "Node.js"}, {"name": "MongoDB"}],
+    "skills": [
+      {
+        "name": "React"
+      },
+      {
+        "name": "Node.js"
+      },
+      {
+        "name": "MongoDB"
+      }
+    ],
     "projects": {
       "project1": "https://aliceproject1.com",
       "project2": "https://aliceproject2.com"
     },
-    "role": "Full Stack Developer"
+    "role": "Database Management",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Bob Smith",
@@ -18,12 +29,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/2.jpg",
     "description": "Backend Engineer specializing in distributed systems.",
     "githubLink": "https://github.com/bobsmith",
-    "skills": [{"name": "Python"}, {"name": "Django"}, {"name": "PostgreSQL"}],
+    "skills": [
+      {
+        "name": "Python"
+      },
+      {
+        "name": "Django"
+      },
+      {
+        "name": "PostgreSQL"
+      }
+    ],
     "projects": {
       "project1": "https://bobproject1.com",
       "project2": "https://bobproject2.com"
     },
-    "role": "Backend Engineer"
+    "role": "Web Developer",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Charlie Davis",
@@ -31,12 +53,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/3.jpg",
     "description": "Frontend Developer with a love for UI/UX design.",
     "githubLink": "https://github.com/charliedavis",
-    "skills": [{"name": "Vue.js"}, {"name": "CSS"}, {"name": "Tailwind"}],
+    "skills": [
+      {
+        "name": "Vue.js"
+      },
+      {
+        "name": "CSS"
+      },
+      {
+        "name": "Tailwind"
+      }
+    ],
     "projects": {
       "project1": "https://charlieproject1.com",
       "project2": "https://charlieproject2.com"
     },
-    "role": "Frontend Developer"
+    "role": "Database Management",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "David Lee",
@@ -44,12 +77,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/4.jpg",
     "description": "DevOps Engineer focused on automation and cloud solutions.",
     "githubLink": "https://github.com/davidlee",
-    "skills": [{"name": "AWS"}, {"name": "Terraform"}, {"name": "Docker"}],
+    "skills": [
+      {
+        "name": "AWS"
+      },
+      {
+        "name": "Terraform"
+      },
+      {
+        "name": "Docker"
+      }
+    ],
     "projects": {
       "project1": "https://davidproject1.com",
       "project2": "https://davidproject2.com"
     },
-    "role": "DevOps Engineer"
+    "role": "App Developer",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Evelyn White",
@@ -57,12 +101,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/5.jpg",
     "description": "Data Scientist specializing in machine learning.",
     "githubLink": "https://github.com/evelynwhite",
-    "skills": [{"name": "Python"}, {"name": "Pandas"}, {"name": "TensorFlow"}],
+    "skills": [
+      {
+        "name": "Python"
+      },
+      {
+        "name": "Pandas"
+      },
+      {
+        "name": "TensorFlow"
+      }
+    ],
     "projects": {
       "project1": "https://evelynproject1.com",
       "project2": "https://evelynproject2.com"
     },
-    "role": "Data Scientist"
+    "role": "Hardware/Embedded System",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Franklin Carter",
@@ -70,12 +125,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/6.jpg",
     "description": "Cybersecurity expert with a passion for ethical hacking.",
     "githubLink": "https://github.com/franklincarter",
-    "skills": [{"name": "Kali Linux"}, {"name": "Networking"}, {"name": "Python"}],
+    "skills": [
+      {
+        "name": "Kali Linux"
+      },
+      {
+        "name": "Networking"
+      },
+      {
+        "name": "Python"
+      }
+    ],
     "projects": {
       "project1": "https://franklinproject1.com",
       "project2": "https://franklinproject2.com"
     },
-    "role": "Cybersecurity Engineer"
+    "role": "Web Developer",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Grace Mitchell",
@@ -83,12 +149,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/7.jpg",
     "description": "Cloud Engineer working with AWS and Kubernetes.",
     "githubLink": "https://github.com/gracemitchell",
-    "skills": [{"name": "AWS"}, {"name": "Kubernetes"}, {"name": "Terraform"}],
+    "skills": [
+      {
+        "name": "AWS"
+      },
+      {
+        "name": "Kubernetes"
+      },
+      {
+        "name": "Terraform"
+      }
+    ],
     "projects": {
       "project1": "https://graceproject1.com",
       "project2": "https://graceproject2.com"
     },
-    "role": "Cloud Engineer"
+    "role": "Cloud Computing",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Henry Adams",
@@ -96,12 +173,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/8.jpg",
     "description": "Software Engineer with a focus on mobile app development.",
     "githubLink": "https://github.com/henryadams",
-    "skills": [{"name": "Flutter"}, {"name": "Dart"}, {"name": "Firebase"}],
+    "skills": [
+      {
+        "name": "Flutter"
+      },
+      {
+        "name": "Dart"
+      },
+      {
+        "name": "Firebase"
+      }
+    ],
     "projects": {
       "project1": "https://henryproject1.com",
       "project2": "https://henryproject2.com"
     },
-    "role": "Mobile Developer"
+    "role": "Hardware/Embedded System",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Isla Bennett",
@@ -109,12 +197,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/9.jpg",
     "description": "Machine Learning Engineer with experience in NLP.",
     "githubLink": "https://github.com/islabennett",
-    "skills": [{"name": "Python"}, {"name": "NLP"}, {"name": "PyTorch"}],
+    "skills": [
+      {
+        "name": "Python"
+      },
+      {
+        "name": "NLP"
+      },
+      {
+        "name": "PyTorch"
+      }
+    ],
     "projects": {
       "project1": "https://islaproject1.com",
       "project2": "https://islaproject2.com"
     },
-    "role": "Machine Learning Engineer"
+    "role": "Hardware/Embedded System",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Jack Wilson",
@@ -122,12 +221,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/10.jpg",
     "description": "Blockchain Developer with experience in Solidity.",
     "githubLink": "https://github.com/jackwilson",
-    "skills": [{"name": "Solidity"}, {"name": "Ethereum"}, {"name": "Web3.js"}],
+    "skills": [
+      {
+        "name": "Solidity"
+      },
+      {
+        "name": "Ethereum"
+      },
+      {
+        "name": "Web3.js"
+      }
+    ],
     "projects": {
       "project1": "https://jackproject1.com",
       "project2": "https://jackproject2.com"
     },
-    "role": "Blockchain Developer"
+    "role": "Database Management",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Kate Morgan",
@@ -135,12 +245,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/11.jpg",
     "description": "Software Engineer specializing in Java development.",
     "githubLink": "https://github.com/katemorgan",
-    "skills": [{"name": "Java"}, {"name": "Spring Boot"}, {"name": "Microservices"}],
+    "skills": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Spring Boot"
+      },
+      {
+        "name": "Microservices"
+      }
+    ],
     "projects": {
       "project1": "https://kateproject1.com",
       "project2": "https://kateproject2.com"
     },
-    "role": "Software Engineer"
+    "role": "Database Management",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Liam Parker",
@@ -148,12 +269,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/12.jpg",
     "description": "AI Engineer developing deep learning models.",
     "githubLink": "https://github.com/liamparker",
-    "skills": [{"name": "Deep Learning"}, {"name": "TensorFlow"}, {"name": "Python"}],
+    "skills": [
+      {
+        "name": "Deep Learning"
+      },
+      {
+        "name": "TensorFlow"
+      },
+      {
+        "name": "Python"
+      }
+    ],
     "projects": {
       "project1": "https://liamproject1.com",
       "project2": "https://liamproject2.com"
     },
-    "role": "AI Engineer"
+    "role": "Database Management",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Mia Thompson",
@@ -161,12 +293,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/13.jpg",
     "description": "Frontend Developer with an eye for detail.",
     "githubLink": "https://github.com/miathompson",
-    "skills": [{"name": "HTML"}, {"name": "CSS"}, {"name": "JavaScript"}],
+    "skills": [
+      {
+        "name": "HTML"
+      },
+      {
+        "name": "CSS"
+      },
+      {
+        "name": "JavaScript"
+      }
+    ],
     "projects": {
       "project1": "https://miaproject1.com",
       "project2": "https://miaproject2.com"
     },
-    "role": "Frontend Developer"
+    "role": "Cloud Computing",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Noah Reynolds",
@@ -174,12 +317,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/14.jpg",
     "description": "Cloud Security Specialist ensuring safe cloud deployments.",
     "githubLink": "https://github.com/noahreynolds",
-    "skills": [{"name": "AWS Security"}, {"name": "IAM"}, {"name": "Encryption"}],
+    "skills": [
+      {
+        "name": "AWS Security"
+      },
+      {
+        "name": "IAM"
+      },
+      {
+        "name": "Encryption"
+      }
+    ],
     "projects": {
       "project1": "https://noahproject1.com",
       "project2": "https://noahproject2.com"
     },
-    "role": "Cloud Security Engineer"
+    "role": "App Developer",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Olivia Martinez",
@@ -187,12 +341,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/15.jpg",
     "description": "iOS Developer passionate about Swift and UI/UX.",
     "githubLink": "https://github.com/oliviamartinez",
-    "skills": [{"name": "Swift"}, {"name": "Xcode"}, {"name": "iOS Development"}],
+    "skills": [
+      {
+        "name": "Swift"
+      },
+      {
+        "name": "Xcode"
+      },
+      {
+        "name": "iOS Development"
+      }
+    ],
     "projects": {
       "project1": "https://oliviaproject1.com",
       "project2": "https://oliviaproject2.com"
     },
-    "role": "iOS Developer"
+    "role": "Database Management",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Peter Collins",
@@ -200,12 +365,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/16.jpg",
     "description": "Big Data Engineer handling large-scale data processing.",
     "githubLink": "https://github.com/petercollins",
-    "skills": [{"name": "Hadoop"}, {"name": "Spark"}, {"name": "Kafka"}],
+    "skills": [
+      {
+        "name": "Hadoop"
+      },
+      {
+        "name": "Spark"
+      },
+      {
+        "name": "Kafka"
+      }
+    ],
     "projects": {
       "project1": "https://peterproject1.com",
       "project2": "https://peterproject2.com"
     },
-    "role": "Big Data Engineer"
+    "role": "UI UX Designer",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Quinn Roberts",
@@ -213,12 +389,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/17.jpg",
     "description": "Game Developer creating immersive experiences.",
     "githubLink": "https://github.com/quinnroberts",
-    "skills": [{"name": "Unity"}, {"name": "C#"}, {"name": "Unreal Engine"}],
+    "skills": [
+      {
+        "name": "Unity"
+      },
+      {
+        "name": "C#"
+      },
+      {
+        "name": "Unreal Engine"
+      }
+    ],
     "projects": {
       "project1": "https://quinnproject1.com",
       "project2": "https://quinnproject2.com"
     },
-    "role": "Game Developer"
+    "role": "Database Management",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Ryan Edwards",
@@ -226,12 +413,23 @@
     "profilePic": "https://randomuser.me/api/portraits/men/18.jpg",
     "description": "Blockchain Architect designing secure DApps.",
     "githubLink": "https://github.com/ryanedwards",
-    "skills": [{"name": "Solidity"}, {"name": "Ethereum"}, {"name": "Smart Contracts"}],
+    "skills": [
+      {
+        "name": "Solidity"
+      },
+      {
+        "name": "Ethereum"
+      },
+      {
+        "name": "Smart Contracts"
+      }
+    ],
     "projects": {
       "project1": "https://ryanproject1.com",
       "project2": "https://ryanproject2.com"
     },
-    "role": "Blockchain Architect"
+    "role": "App Developer",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Sophia Walker",
@@ -239,12 +437,23 @@
     "profilePic": "https://randomuser.me/api/portraits/women/19.jpg",
     "description": "Automation Engineer building CI/CD pipelines.",
     "githubLink": "https://github.com/sophiawalker",
-    "skills": [{"name": "Jenkins"}, {"name": "GitHub Actions"}, {"name": "Ansible"}],
+    "skills": [
+      {
+        "name": "Jenkins"
+      },
+      {
+        "name": "GitHub Actions"
+      },
+      {
+        "name": "Ansible"
+      }
+    ],
     "projects": {
       "project1": "https://sophiaproject1.com",
       "project2": "https://sophiaproject2.com"
     },
-    "role": "Automation Engineer"
+    "role": "UI UX Designer",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   },
   {
     "name": "Tyler Scott",
@@ -252,11 +461,22 @@
     "profilePic": "https://randomuser.me/api/portraits/men/20.jpg",
     "description": "Software Architect specializing in system design.",
     "githubLink": "https://github.com/tylerscott",
-    "skills": [{"name": "Microservices"}, {"name": "Docker"}, {"name": "Kubernetes"}],
+    "skills": [
+      {
+        "name": "Microservices"
+      },
+      {
+        "name": "Docker"
+      },
+      {
+        "name": "Kubernetes"
+      }
+    ],
     "projects": {
       "project1": "https://tylerproject1.com",
       "project2": "https://tylerproject2.com"
     },
-    "role": "Software Architect"
+    "role": "Database Management",
+    "resume": "https://docs.google.com/document/d/1qHeYPYiCONbigUU1OeXl4N5yOh49Qr7h0y6-ige0m-o/edit?usp=drive_link"
   }
 ]

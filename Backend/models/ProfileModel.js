@@ -18,6 +18,7 @@ const profileSchema = new mongoose.Schema({
             project2: String,
         },
     role: String,
+    resume: String,
 });
 
 const Profile = mongoose.model("Profile", profileSchema);
