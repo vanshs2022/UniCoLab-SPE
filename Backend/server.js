@@ -41,6 +41,8 @@ app.post('/api/signup', async (req, res) => {
     await user.save();
     console.log("User saved successfully");
 
+    await sendConfirmation(username, name);
+
     res.status(201).json({ message: "User registered successfully!" });
   } catch (error) {
     console.error("Signup Error:", error);
@@ -76,6 +78,10 @@ app.post('/api/profile/edit', async (req, res) => {
   try {
     console.log('Received form data');
     req.body.skills = req.body.skills.map(skill => ({ name: skill }));
+    const user = await User.find({username: req.body.username});
+    if(!user){
+      return res.status(500).json({ message: 'No user found' });
+    } 
     const profile = new Profile(req.body);
     await profile.save();
     res.status(200).json({ message: 'Message recieved!', profileId: profile._id });

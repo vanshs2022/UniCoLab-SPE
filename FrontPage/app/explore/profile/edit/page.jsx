@@ -58,6 +58,11 @@ export default function ProfileForm() {
 
       const result = await response.json();
       console.log("Response from backend:", result);
+      
+      if(result.message === "No user found"){
+        alert("Signup required");
+        router.push('localhost:3000/auth/signup');
+      }
 
       if (result.message === "Message recieved!" && result.profileId) {
         router.push(`/explore/profile/${result.profileId}`);
@@ -109,6 +114,17 @@ export default function ProfileForm() {
           name="name"
           placeholder="Full Name"
           value={formData.name}
+          onChange={handleChange}
+          className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
+          required
+        />
+
+        {/* username */}
+        <input
+          type="text"
+          name="username"
+          placeholder="Email"
+          value={formData.username}
           onChange={handleChange}
           className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           required
