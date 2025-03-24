@@ -7,30 +7,30 @@ import Link from "next/link";
 export default function page() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
     const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:5000/api/auth/login", {
+            const res = await fetch(`http://localhost:5000/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ username: email, password }), // Fix: use `email`
             });
-
+    
             const data = await res.json();
             if (res.ok) {
-                localStorage.setItem("token", data.token);
                 alert("Login successful!");
-                router.push("/dashboard");
+                router.push("/explore/profile");
             } else {
                 alert(data.message || "Login failed");
             }
         } catch (error) {
-            console.error("Error:", error);
-            alert("An error occurred. Please try again.");
+            setMessage(error.response?.data?.message || "Something went wrong");
         }
     };
+    
 
     return (
         <div className="login-container">

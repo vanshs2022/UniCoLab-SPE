@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function page() {
     const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const router = useRouter();
@@ -19,10 +19,10 @@ export default function page() {
         }
 
         try {
-            const res = await fetch("http://localhost:5000/api/auth/signup", {
+            const res = await fetch(`http://localhost:5000/api/signup`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, password }),
+                body: JSON.stringify({ name, username, password }),
             });
 
             const data = await res.json();
@@ -49,7 +49,7 @@ export default function page() {
                     </div>
                     <div className="input-group">
                         <label>Email</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        <input type="email" value={username} onChange={(e) => setUsername(e.target.value)} required />
                     </div>
                     <div className="input-group">
                         <label>Password</label>
