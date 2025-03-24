@@ -18,75 +18,105 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-.page{
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout & Page Structure */
+.page {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
 }
-.landing{
+
+.landing {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
 }
-.content{
-  p{
-    font-size: 2vw;
-  }
-}
-.hero{
-  height: 100vh;
-  width: 100vw;
+
+.content p {
+  font-size: 2vw;
 }
 
-#visual{
-  position:absolute;
+.hero {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+#visual {
+  position: absolute;
   bottom: 0%;
   width: 100vw;
 }
 
-.mission{
+/* Mission Section */
+.mission {
   height: 100vh;
-  width: 100vw;;
-  /* background-color: #ffffff;
-    background-color: #ededed;
- */  background-color: #ededed;
+  width: 100vw;
+  background-color: #ededed;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.miss-title{
+
+.mission h1 {
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.miss-title {
   color: #081b91;
 }
-.miss-para{
+
+.miss-para {
   color: rgb(37, 37, 37);
   font-size: 1.9vw;
 }
-.select{
+
+/* Components */
+.select {
   background-color: #081a91;
 }
-.stackedcard{
-  background-color: #ededed;
 
+.stackedcard {
+  background-color: #ededed;
 }
-.button{
+
+.button {
   background-color: #4d4c4c;
 }
-.faq{
+
+/* FAQ Section */
+.faq {
   background-color: #ededed;
   color: black;
 }
 
-.contact{
+/* Contact Section */
+.contact {
   height: 100vh;
   width: 100vw;
   background-color: #ededed;
 }
 
-.contact_button{
+.contact_button {
   background-color: rgb(64, 106, 245);
 }
 
+/* Navbar */
 .navbar {
   height: 70px;
   color: #ffffff;
@@ -95,11 +125,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* box-shadow: 100px 140px 180px rgb(255, 0, 0); Adds shadow at the bottom */
-  /* box-shadow: 0px 6px 10px rgb(255, 0, 0); */
-
-  
 }
+
 .nav_part1 {
   height: 100%;
   width: 40%;
@@ -119,38 +146,136 @@ body {
   justify-content: center;
   gap: 3vw;
   align-items: center;
-
-  button {
-    color: #ffffff;
-    height: 40px;
-    width: 100px;
-    background-color: #3f52c2;
-    border-radius: 5px;
-  }
 }
 
+.nav_part button {
+  color: #ffffff;
+  height: 40px;
+  width: 100px;
+  background-color: #3f52c2;
+  border-radius: 5px;
+}
+
+/* Images */
 img {
   height: 180px;
-  width: 180px;
+  width: 180px;
 }
-.mission{
-  h1{
-      font-size: 70px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-}
-.explore{
+
+/* Explore Section */
+.explore {
   width: 100vw;
   height: fit-content;
 }
-.profiles{
+
+/* Profiles Section */
+.profiles {
   background-color: #020825;
 }
-.connect{
+
+/* Typography */
+.connect {
   font-size: larger;
 }
-.talent{
+
+.talent {
   font-size: smaller;
+}
+
+/* Login & Signup Pages */
+.login-container,
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: #0a192f;
+}
+
+.login-box,
+.signup-box {
+  background-color: #112240;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-box h2,
+.signup-box h2 {
+  margin-bottom: 20px;
+  color: #ccd6f6;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #8892b0;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  background-color: #0a192f;
+  border: 1px solid #64ffda;
+  border-radius: 5px;
+  color: #ccd6f6;
+  font-size: 16px;
+}
+
+/* Buttons */
+.login-button,
+.signup-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #64ffda;
+  color: #0a192f;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover,
+.signup-button:hover {
+  background-color: #52d1b2;
+}
+
+/* Links */
+.signup-link,
+.login-link {
+  margin-top: 15px;
+  color: #8892b0;
+}
+
+.signup-link a,
+.login-link a {
+  color: #64ffda;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signup-link a:hover,
+.login-link a:hover {
+  color: #52d1b2;
+}
+
+/* Footer */
+footer {
+  background-color: #112240;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer p {
+  color: #8892b0;
 }
