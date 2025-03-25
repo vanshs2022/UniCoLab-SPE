@@ -13,7 +13,7 @@ const Page = () => {
       </div>
       <div className="nav_part">
         <Link href="http://localhost:3000/auth/login"><button>Log In</button></Link>
-        <Link href="http://localhost:3000/auth/login"><button>Sign Up</button></Link>
+        <Link href="http://localhost:3000/auth/signup"><button>Sign Up</button></Link>
       </div>
     </div>
   );
