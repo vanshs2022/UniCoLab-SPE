@@ -7,6 +7,8 @@ const User = require("./models/UserModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const {sendMail} = require("./Components/sendMail");
+const {sendConfirmation} = require("./Components/sendConfirmation");
+const {sendNotification} = require("./Components/sendNotification");
 const auth = require("./middleware/auth");
 require("dotenv").config(); 
 
@@ -110,6 +112,8 @@ app.get('/api/profile/:id', async (req, res) => {
   let { id } = req.params;
   const profile = await Profile.findById(id);
   res.send(profile);
+  const username = profile.username;
+  await sendNotification(username);
 });
 
 const PORT = 5000;
