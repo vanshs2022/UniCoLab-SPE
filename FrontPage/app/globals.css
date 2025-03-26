@@ -187,7 +187,7 @@ img {
   justify-content: center;
   align-items: center;
   flex: 1;
-  background-color: #0a192f;
+  background-color: #011128;
 }
 
 .login-box,
@@ -222,7 +222,7 @@ img {
   width: 100%;
   padding: 10px;
   background-color: #0a192f;
-  border: 1px solid #64ffda;
+  border: 1px solid #ffffff;
   border-radius: 5px;
   color: #ccd6f6;
   font-size: 16px;
@@ -233,8 +233,8 @@ img {
 .signup-button {
   width: 100%;
   padding: 10px;
-  background-color: #64ffda;
-  color: #0a192f;
+  background-color: #0d0ad0;
+  color: #f6f6f6;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -244,7 +244,7 @@ img {
 
 .login-button:hover,
 .signup-button:hover {
-  background-color: #52d1b2;
+  background-color: #ffffff;
 }
 
 /* Links */
@@ -256,14 +256,14 @@ img {
 
 .signup-link a,
 .login-link a {
-  color: #64ffda;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .signup-link a:hover,
 .login-link a:hover {
-  color: #52d1b2;
+  color: #ffffff;
 }
 
 /* Footer */
@@ -285,3 +285,4 @@ footer p {
   width: 18vw;
   gap: 10px;
 }
+
