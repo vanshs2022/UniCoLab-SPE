@@ -21,7 +21,6 @@ const sendNotification = async (userEmail) => {
         };
 
         await sender.sendMail(receiver);
-        console.log("Notification sent successfully");
     } catch (err) {
         console.error("Error sending email:", err);
     }

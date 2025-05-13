@@ -1,5 +1,11 @@
 # Ignore node_modules folder
 Backend/node_modules/
+FrontPage/node_modules/
 
 #Ignore env folder
 Backend/.env
+FrontPage/.env
+
+Backend/Components/unicolab-405f8-firebase-adminsdk-fbsvc-6b60ddcab3.json
+
+abcd.py

@@ -1,16 +1,20 @@
-const jwt = require("jsonwebtoken");
+const admin = require('../Components/firebase');
 
-module.exports = function (req, res, next) {
-    const token = req.header("Authorization")?.split(" ")[1]; // Extract Bearer token
-    if (!token) {
-        return res.status(401).json({ message: "Access Denied" });
-    }
+const authenticate = async (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ message: "Missing or invalid token" });
+  }
 
-    try {
-        const verified = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = verified;
-        next();
-    } catch (err) {
-        res.status(400).json({ message: "Invalid Token" });
-    }
+  const idToken = authHeader.split("Bearer ")[1];
+
+  try {
+    const decoded = await admin.auth().verifyIdToken(idToken);
+    req.user = decoded;
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: "Unauthorized", error: err.message });
+  }
 };
+
+module.exports = authenticate;

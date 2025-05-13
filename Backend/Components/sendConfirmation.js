@@ -21,7 +21,6 @@ const sendConfirmation = async (userEmail, userName) => {
         };
 
         await sender.sendMail(receiver);
-        console.log("Confirmation email sent successfully");
     } catch (err) {
         console.error("Error sending email:", err);
     }

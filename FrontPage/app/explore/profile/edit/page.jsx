@@ -1,10 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import userAuthStatus from "@/utils/authStatus";
 
 export default function ProfileForm() {
   const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  useEffect(()=>{
+    userAuthStatus().then((loggedIn) => {
+      if(!loggedIn){
+        router.push("/auth/login");
+      }
+      else{
+        setIsLoggedIn(true);
+      }
+    });
+  }, [router]);
 
   const initialFormData = {
     name: "",
@@ -77,6 +90,14 @@ export default function ProfileForm() {
       console.error("Error submitting form:", error);
     }
   };
+
+  if (isLoggedIn === null) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-[#0A1133]">
+        <p className="text-white text-xl">Checking authentication status...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#0A1133] p-6">

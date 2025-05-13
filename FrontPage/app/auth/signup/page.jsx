@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { auth } from "@/utils/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 export default function page() {
     const [name, setName] = useState("");
@@ -11,32 +14,63 @@ export default function page() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const router = useRouter();
 
+    const handleGoogleLogin = async () => {
+        try{
+            const provider = new GoogleAuthProvider();
+            const result = await signInWithPopup(auth, provider);
+            const token = result.user.getIdToken();
+            
+            await fetch("http://localhost:5000/api/auth", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({ name: result.user.displayName, email: result.user.email }),
+            });
+
+            alert("User authenticated");
+            router.push("/");
+        }
+        catch (error) {
+            console.error("Error signing in with Google:", error);
+            alert("Error signing in with Google");
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (password !== confirmPassword) {
-            alert("Passwords do not match!");
+
+        if(password!=confirmPassword){
+            alert("Password do not match!");
             return;
         }
 
-        try {
-            const res = await fetch(`http://localhost:5000/api/signup`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, username, password }),
+        try{
+            const user = await createUserWithEmailAndPassword(auth, email, password);
+            await updateProfile(user.user, {
+                displayName: name,
             });
 
-            const data = await res.json();
-            if (res.ok) {
-                alert("Signup successful!");
-                router.push("/auth/login");
-            } else {
-                alert(data.message || "Signup failed");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("An error occurred. Please try again.");
+            const token = await user.user.getIdToken();
+
+            await fetch("https://localhost:5000/api/auth",{
+                method : "POST",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "content-type": "application/json",
+                },
+
+            });
+
+            alert("Signup Successful");
+            router.push("/");
         }
-    };
+        catch(error){
+            console.log(error);
+            alert("Error Signing up")
+        }
+    }
 
     return (
         <div className="signup-container">
@@ -61,8 +95,15 @@ export default function page() {
                     </div>
                     <button type="submit" className="signup-button">Sign Up</button>
                 </form>
+    
+                <button onClick={handleGoogleLogin} className="google-signin-button" style={{ marginTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Icon" width="20" height="20" />
+                    Sign in with Google
+                </button>
+    
                 <p className="login-link">Already have an account? <Link href="/auth/login">Login</Link></p>
             </div>
         </div>
     );
+    
 }

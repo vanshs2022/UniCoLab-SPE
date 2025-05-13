@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { auth } from "@/utils/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 export default function page() {
     const [email, setEmail] = useState("");
@@ -10,27 +13,51 @@ export default function page() {
     const [message, setMessage] = useState("");
     const router = useRouter();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const res = await fetch(`http://localhost:5000/api/login`, {
+    const handleSubmit = async (email, password) => {
+        try{
+            const user = await signInWithEmailAndPassword(auth, email,password);
+            const token = await user.user.getIdToken();
+            
+            await fetch("https://localhost:5000/api/auth", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username: email, password }), // Fix: use `email`
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "content-type": "application/json",
+                }
             });
-    
-            const data = await res.json();
-            if (res.ok) {
-                alert("Login successful!");
-                router.push("/explore/profile");
-            } else {
-                alert(data.message || "Login failed");
-            }
-        } catch (error) {
-            setMessage(error.response?.data?.message || "Something went wrong");
+
+            alert("Sign in successful");
+        }
+        catch(error){
+            console.log(error);
+            alert("Error in signing in");
         }
     };
-    
+
+    const handleGoogleLogin = async () => {
+        try {
+            const provider = new GoogleAuthProvider();
+            const result = await signInWithPopup(auth, provider);
+            const token = result.user.getIdToken();
+
+            await fetch("http://localhost:5000/api/auth", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({ name: result.user.displayName, email: result.user.email }),
+            });
+
+            alert("User authenticated");
+            router.push("/");
+        }
+        catch (error) {
+            console.error("Error signing in with Google:", error);
+            alert("Error signing in with Google");
+        }
+    }
+
 
     return (
         <div className="login-container">
@@ -47,6 +74,12 @@ export default function page() {
                     </div>
                     <button type="submit" className="login-button">Login</button>
                 </form>
+
+                <button onClick={handleGoogleLogin} className="google-signin-button" style={{ marginTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Icon" width="20" height="20" />
+                    Sign in with Google
+                </button>
+
                 <p className="signup-link">Don't have an account? <Link href="/auth/signup">Sign up</Link></p>
             </div>
         </div>
