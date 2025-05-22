@@ -13,7 +13,9 @@ export default function page() {
     const [message, setMessage] = useState("");
     const router = useRouter();
 
-    const handleSubmit = async (email, password) => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
         try{
             const user = await signInWithEmailAndPassword(auth, email,password);
             const token = await user.user.getIdToken();
