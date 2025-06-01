@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import contact from "../../../../public/contact.png";
 
 export default function ProfilePage() {
   const { id } = useParams();
@@ -53,6 +54,10 @@ export default function ProfilePage() {
                 src={user.profilePic}
                 alt="Profile"
                 className="w-44 h-44 rounded-full border-4 border-[#0a1030] object-cover"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = contact.src;
+                }}
               />
             </div>
           )}

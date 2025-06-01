@@ -2,7 +2,7 @@ import React from 'react'
 import StackedCardTestimonials from '../../../Components/StackedCardTestimonials'
 const page = () => {
   return (
-    <div className='mission'>
+    <div className='mission' id='mission'>
         <StackedCardTestimonials  />
     </div>
   )

@@ -47,7 +47,7 @@ export default function page() {
         }
 
         try{
-            const user = await createUserWithEmailAndPassword(auth, email, password);
+            const user = await createUserWithEmailAndPassword(auth, username, password);
             await updateProfile(user.user, {
                 displayName: name,
             });
@@ -68,7 +68,7 @@ export default function page() {
         }
         catch(error){
             console.log(error);
-            alert("Error Signing up")
+            alert(error);
         }
     }
 

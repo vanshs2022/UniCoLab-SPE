@@ -10,7 +10,7 @@ import HoverDevCards from "../../../Components/HoverDevCards";
 export default function Profiles() {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const searchParams = useSearchParams(); // This hooks into the URL query parameters
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     async function fetchProfiles() {
@@ -29,7 +29,7 @@ export default function Profiles() {
     }
 
     fetchProfiles();
-  }, [searchParams]); // Re-run effect when query params change
+  }, [searchParams]);
 
   if (loading) {
     return <p className="text-white text-center text-lg">Loading...</p>;

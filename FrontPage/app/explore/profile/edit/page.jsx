@@ -8,18 +8,7 @@ export default function ProfileForm() {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
-  useEffect(()=>{
-    userAuthStatus().then((loggedIn) => {
-      if(!loggedIn){
-        router.push("/auth/login");
-      }
-      else{
-        setIsLoggedIn(true);
-      }
-    });
-  }, [router]);
-
-  const initialFormData = {
+  let initialFormData = {
     name: "",
     username: "",
     profilePic: "",
@@ -33,15 +22,52 @@ export default function ProfileForm() {
 
   const [formData, setFormData] = useState(initialFormData);
   const [skillInput, setSkillInput] = useState("");
-  const [formKey, setFormKey] = useState(0); // Key to force rerender
+  const [formKey, setFormKey] = useState(0);
+
+  useEffect(() => {
+    userAuthStatus().then(({ email, authenticated }) => {
+      if (!authenticated) {
+        router.push("/auth/login");
+      } else {
+        setIsLoggedIn(true);
+        const fetchProfile = async (email) => {
+          try {
+            const response = await fetch(
+              "http://localhost:5000/api/profile/get",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email }),
+              }
+            );
+
+            const profile = await response.json();
+
+            if (profile.message != "No user Found") {
+              setFormData(profile.profile);
+              console.log(profile.message);
+              console.log(profile.profile);
+            }
+            else{
+              setFormData((prev) => ({ ...prev, username: email }));
+            }
+          } catch (error) {
+            console.log("Error in fetching user data." + error);
+          }
+        };
+        fetchProfile(email);
+      }
+    });
+  }, [router]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSkillAdd = () => {
-    if (skillInput.trim() !== "" && !formData.skills.includes(skillInput)) {
-      setFormData({ ...formData, skills: [...formData.skills, skillInput] });
+    const newSkill = skillInput.trim();
+    if (newSkill !== "" && !formData.skills.includes(newSkill)) {
+      setFormData({ ...formData, skills: [...formData.skills, newSkill] });
       setSkillInput("");
     }
   };
@@ -71,15 +97,14 @@ export default function ProfileForm() {
 
       const result = await response.json();
       console.log("Response from backend:", result);
-      
-      if(result.message === "No user found"){
+
+      if (result.message === "No user found") {
         alert("Signup required");
-        router.push('localhost:3000/auth/signup');
+        router.push("/auth/signup");
       }
 
-      if (result.message === "Message recieved!" && result.profileId) {
+      if (result.message === "Message Recieved!" && result.profileId) {
         router.push(`/explore/profile/${result.profileId}`);
-
         setFormData(initialFormData);
         setSkillInput("");
         setFormKey((prevKey) => prevKey + 1);
@@ -112,7 +137,7 @@ export default function ProfileForm() {
 
         {/* Profile Pic */}
         <div className="flex flex-col items-center mb-4">
-          {formData.profilePic && (
+          {formData?.profilePic && (
             <img
               src={formData.profilePic}
               alt="Profile Preview"
@@ -123,7 +148,7 @@ export default function ProfileForm() {
             type="url"
             name="profilePic"
             placeholder="Profile Pic URL"
-            value={formData.profilePic}
+            value={formData?.profilePic || ""}
             onChange={handleChange}
             className="w-full p-2 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           />
@@ -134,7 +159,7 @@ export default function ProfileForm() {
           type="text"
           name="name"
           placeholder="Full Name"
-          value={formData.name}
+          value={formData?.name || ""}
           onChange={handleChange}
           className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           required
@@ -145,7 +170,7 @@ export default function ProfileForm() {
           type="text"
           name="username"
           placeholder="Email"
-          value={formData.username}
+          value={formData?.username || ""}
           onChange={handleChange}
           className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           required
@@ -156,7 +181,7 @@ export default function ProfileForm() {
           type="url"
           name="githubLink"
           placeholder="GitHub URL"
-          value={formData.githubLink}
+          value={formData?.githubLink || ""}
           onChange={handleChange}
           className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
         />
@@ -165,13 +190,15 @@ export default function ProfileForm() {
         <textarea
           name="description"
           placeholder="Tell us about yourself..."
-          value={formData.description}
+          value={formData?.description || ""}
           onChange={handleChange}
           className="w-full p-3 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
         ></textarea>
 
         {/* Skills */}
-        <label className="block text-[#ffffff] font-semibold mb-2">Skills</label>
+        <label className="block text-[#ffffff] font-semibold mb-2">
+          Skills
+        </label>
         <div className="flex items-center gap-2 mb-3">
           <input
             type="text"
@@ -190,37 +217,44 @@ export default function ProfileForm() {
         </div>
 
         <div className="flex flex-wrap gap-2 mb-3">
-          {formData.skills.map((skill, index) => (
-            <span
-              key={index}
-              className="bg-[#ffffff] text-[#0A1133] px-3 py-1 rounded-full flex items-center gap-2"
-            >
-              {skill}
-              <button
-                type="button"
-                onClick={() => handleSkillRemove(skill)}
-                className="text-white bg-[#1A237E] rounded-full px-2 py-0.5 text-xs hover:bg-red-600 hover:text-white transition duration-300"
+          {Array.isArray(formData?.skills) &&
+            formData.skills.map((skill, index) => (
+              <span
+                key={index}
+                className="bg-white text-[#0A1133] px-3 py-1 rounded-full flex items-center gap-2"
               >
-                ×
-              </button>
-            </span>
-          ))}
+                {skill}
+                <button
+                  type="button"
+                  onClick={() => handleSkillRemove(skill)}
+                  aria-label={`Remove skill ${skill}`}
+                  className="text-white bg-[#1A237E] rounded-full px-2 py-0.5 text-xs hover:bg-red-600 hover:text-white transition duration-300"
+                >
+                  ×
+                </button>
+              </span>
+            ))}
         </div>
 
         {/* Projects */}
-        <label className="block text-[#ffffff] font-semibold mb-2">Projects</label>
+        <label className="block text-[#ffffff] font-semibold mb-2">
+          Projects
+        </label>
         <input
           type="text"
           placeholder="Project 1"
-          value={formData.projects.project1}
+          value={formData?.projects?.project1 || ""}
           onChange={(e) => handleProjectChange("project1", e.target.value)}
+          aria-label="Project 1"
           className="w-full p-2 mb-2 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
         />
+
         <input
           type="text"
           placeholder="Project 2"
-          value={formData.projects.project2}
+          value={formData?.projects?.project2 || ""}
           onChange={(e) => handleProjectChange("project2", e.target.value)}
+          aria-label="Project 2"
           className="w-full p-2 mb-3 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
         />
 
@@ -228,12 +262,14 @@ export default function ProfileForm() {
         <label className="block text-[#ffffff] font-semibold mb-2">Role</label>
         <select
           name="role"
-          value={formData.role}
+          value={formData?.role}
           onChange={handleChange}
           className="w-full p-3 mb-4 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           required
         >
-          <option value="" disabled>Select your role</option>
+          <option value="" disabled>
+            Select your role
+          </option>
           <option value="Web Developer">Web Developer</option>
           <option value="App Developer">App Developer</option>
           <option value="UI UX Designer">UI UX Designer</option>
@@ -249,7 +285,7 @@ export default function ProfileForm() {
             type="url"
             name="resume"
             placeholder="Resume URL"
-            value={formData.resume}
+            value={formData?.resume || ""}
             onChange={handleChange}
             className="w-full p-2 border border-[#1A237E] rounded-lg bg-[#0A1133] text-white focus:ring-2 focus:ring-[#ffffff] outline-none"
           />

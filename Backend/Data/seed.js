@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Profile = require("../models/ProfileModel");
 const profilesData = require("./seed.json");
 
-mongoose.connect("mongodb://127.0.0.1:27017/profile", {
+mongoose.connect("mongodb+srv://vansh:iexbJdkSWSblYdG0@unicolab.cfhubz1.mongodb.net/?retryWrites=true&w=majority&appName=unicolab", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {

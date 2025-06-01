@@ -1,16 +1,19 @@
 import { motion } from "framer-motion";
+import contact from "../public/contact.png";
 
-const SquishyCard = ({ profile }) => {  // <-- Destructure profile correctly
+const SquishyCard = ({ profile }) => {
+  // <-- Destructure profile correctly
   return (
     <section className="px-4 py-12">
       <div className="mx-auto w-fit">
-        <Card profile={profile} />  {/* <-- Pass profile to Card */}
+        <Card profile={profile} /> {/* <-- Pass profile to Card */}
       </div>
     </section>
   );
 };
 
-const Card = ({ profile }) => {  // <-- Destructure profile here
+const Card = ({ profile }) => {
+  // <-- Destructure profile here
   return (
     <motion.div
       whileHover="hover"
@@ -28,10 +31,18 @@ const Card = ({ profile }) => {  // <-- Destructure profile here
       {/* Card Content */}
       <div className="relative z-10 text-white">
         <span className="mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm font-light text-white">
-          {profile?.role || "Unknown Role"}  {/* <-- Safe access profile.role */}
+          {profile?.role || "Unknown Role"} {/* <-- Safe access profile.role */}
         </span>
         <div className="profile_image">
-            <img src={profile.profilePic} alt="profile" className="rounded-full w-24 h-24 mx-auto" />
+          <img
+            src={profile.profilePic}
+            alt="profile"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = contact.src;
+            }} // display of default image in case of user image not found
+            className="rounded-full w-24 h-24 mx-auto"
+          />
         </div>
         <motion.span
           initial={{ scale: 0.85 }}
@@ -46,10 +57,8 @@ const Card = ({ profile }) => {  // <-- Destructure profile here
           }}
           className="my-2 block origin-top-left font-mono text-6xl font-black leading-[1.2]"
         >
-          {profile?.name || "Unknown Name"}  
-
+          {profile?.name || "Unknown Name"}
         </motion.span>
-        
       </div>
 
       {/* Button */}
