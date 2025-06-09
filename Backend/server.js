@@ -21,7 +21,7 @@ main()
 
 async function main() {
   await mongoose.connect(
-    "mongodb+srv://vansh:iexbJdkSWSblYdG0@unicolab.cfhubz1.mongodb.net/?retryWrites=true&w=majority&appName=unicolab"
+    process.env.DATABASE_URL
   );
 }
 
