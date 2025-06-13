@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { twMerge } from "tailwind-merge";
 import Link from "next/link";
+
 export const DarkGridHero = () => {
   return (
     <section className="hero relative overflow-hidden bg-[#0B1134]">

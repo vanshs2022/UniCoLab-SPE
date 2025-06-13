@@ -85,7 +85,7 @@ const Question = ({ title, children, defaultOpen = false }) => {
         }}
         className="overflow-hidden text-slate-600"
       >
-        <div ref={ref}>{children}</div> {/* Changed p to div */}
+        <div ref={ref}>{children}</div>   
       </motion.div>
     </motion.div>
   );
