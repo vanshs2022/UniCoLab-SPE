@@ -25,7 +25,7 @@ export default function ProfileForm() {
   const [formKey, setFormKey] = useState(0);
 
   useEffect(() => {
-    userAuthStatus().then(({ email, authenticated }) => {
+    userAuthStatus().then(({ email, authenticated, token }) => {
       if (!authenticated) {
         router.push("/auth/login");
       } else {
@@ -36,7 +36,7 @@ export default function ProfileForm() {
               "http://localhost:5000/api/profile/get",
               {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "application/json", "authorization" : `Bearer ${token}` },
                 body: JSON.stringify({ email: email }),
               }
             );
@@ -91,7 +91,7 @@ export default function ProfileForm() {
     try {
       const response = await fetch("http://localhost:5000/api/profile/edit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "authorization" : `Bearer ${token}` },
         body: JSON.stringify(formData),
       });
 

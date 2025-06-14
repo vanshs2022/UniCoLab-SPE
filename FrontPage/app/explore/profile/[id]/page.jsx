@@ -1,30 +1,41 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import contact from "../../../../public/contact.png";
+import userAuthStatus from "../../../../utils/authStatus";
 
 export default function ProfilePage() {
+  const router = useRouter();
   const { id } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchProfile() {
-      try {
-        const res = await fetch(`http://localhost:5000/api/profile/${id}`);
-        if (!res.ok) throw new Error("Profile not found");
-        const data = await res.json();
-        setUser(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    }
+    userAuthStatus().then(({ email, authenticated, token }) => {
+      if (!authenticated) {
+        router.push("/auth/login");
+      } else {
+        async function fetchProfile() {
+          try {
+            const res = await fetch(`http://localhost:5000/api/profile/${id}`, {
+              headers: { authorization: `Bearer ${token}` },
+            });
+            if (!res.ok) throw new Error("Profile not found");
+            const data = await res.json();
+            setUser(data);
+          } catch (error) {
+            console.error(error);
+          } finally {
+            setLoading(false);
+          }
+        }
 
-    if (id) fetchProfile();
+        if (id) fetchProfile();
+      }
+    });
   }, [id]);
 
   if (loading)
@@ -44,7 +55,6 @@ export default function ProfilePage() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#0a1030] px-4 font-inter">
       <div className="bg-[#11183f] border border-[#1f2555] p-10 rounded-2xl shadow-lg max-w-6xl w-full text-white flex flex-col md:flex-row gap-10 transition duration-300">
-
         {/* LEFT SIDE - IMAGE, NAME, ROLE */}
         <div className="flex flex-col items-center md:w-1/3">
           {/* Profile Image */}
@@ -75,7 +85,6 @@ export default function ProfilePage() {
 
         {/* RIGHT SIDE - DESCRIPTION, SKILLS, LINKS, CONNECT */}
         <div className="flex flex-col justify-center md:w-2/3 text-center md:text-left">
-
           {/* Description */}
           <p className="text-gray-300 text-base mb-6 leading-relaxed tracking-normal">
             {user.description || "No description available."}
@@ -118,8 +127,11 @@ export default function ProfilePage() {
                     target="_blank"
                     className="flex items-center gap-2 text-white transition-colors duration-300"
                   >
-                    <img src="/projectLogo.png" alt="Project Icon" className="w-6 h-6 object-contain" />
-
+                    <img
+                      src="/projectLogo.png"
+                      alt="Project Icon"
+                      className="w-6 h-6 object-contain"
+                    />
                     Project Alpha
                   </Link>
                 </span>
@@ -134,7 +146,11 @@ export default function ProfilePage() {
                     target="_blank"
                     className="flex items-center gap-2 text-white transition-colors duration-300"
                   >
-                    <img src="/projectLogo.png" alt="Project Icon" className="w-6 h-6 object-contain" />
+                    <img
+                      src="/projectLogo.png"
+                      alt="Project Icon"
+                      className="w-6 h-6 object-contain"
+                    />
                     Project Beta
                   </Link>
                 </span>

@@ -1,4 +1,4 @@
-const admin = require('../Components/firebase');
+const admin = require('../../Components/firebase');
 
 const authenticate = async (req, res, next) => {
   const authHeader = req.headers.authorization;
