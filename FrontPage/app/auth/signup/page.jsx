@@ -60,7 +60,9 @@ export default function page() {
                     Authorization: `Bearer ${token}`,
                     "content-type": "application/json",
                 },
-
+                body : JSON.stringify({
+                    user : username,
+                })
             });
 
             alert("Signup Successful");
