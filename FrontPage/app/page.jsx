@@ -8,6 +8,7 @@ import Profiles from "./Comp/pROFILES/page";
 import Navbar from "./Comp/Navbar/page";
 import Contact from "./Comp/Contact/page";
 import { useEffect } from "react";
+import './globals.css';
 
 const Page = () => {
 
