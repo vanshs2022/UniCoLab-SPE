@@ -1,6 +1,6 @@
 const path = require("path");
 const Profile = require("../models/ProfileModel");
-const { sendNotification } = require(path.resolve(__dirname, '../../components/sendNotification.js'));
+const { sendNotification } = require(path.resolve(__dirname, '../../Components/sendNotification.js'));
 
 
 const extractSkillNames = (skills) =>
