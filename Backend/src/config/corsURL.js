@@ -1,4 +1,4 @@
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = ["http://localhost:3000", "https://unicolab.onrender.com"];
 
 const corsOptions = {
   origin: function (origin, callback) {
