@@ -1,4 +1,6 @@
-const { sendMail } = require("../../components/sendMail");
+const path = require("path");
+const { sendMail } = require(path.resolve(__dirname, '../../components/sendMail'));
+
 
 exports.sendContactMail = async (req, res) => {
   try {

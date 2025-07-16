@@ -1,5 +1,7 @@
+const path = require("path");
 const Profile = require("../models/ProfileModel");
-const { sendNotification } = require("../../components/sendNotification");
+const { sendNotification } = require(path.resolve(__dirname, '../../components/sendNotification'));
+
 
 const extractSkillNames = (skills) =>
   Array.isArray(skills) ? skills.map((s) => s.name) : [];
