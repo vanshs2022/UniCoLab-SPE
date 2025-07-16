@@ -23,12 +23,14 @@ export default function ProfileForm() {
   const [formData, setFormData] = useState(initialFormData);
   const [skillInput, setSkillInput] = useState("");
   const [formKey, setFormKey] = useState(0);
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     userAuthStatus().then(({ email, authenticated, token }) => {
       if (!authenticated) {
         router.push("/auth/login");
       } else {
+        setToken(token);
         setIsLoggedIn(true);
         const fetchProfile = async (email) => {
           try {
@@ -45,14 +47,12 @@ export default function ProfileForm() {
 
             if (profile.message != "No user Found") {
               setFormData(profile.profile);
-              console.log(profile.message);
-              console.log(profile.profile);
             }
             else{
               setFormData((prev) => ({ ...prev, username: email }));
             }
           } catch (error) {
-            console.log("Error in fetching user data." + error);
+            console.error("Error in fetching user data." + error);
           }
         };
         fetchProfile(email);
@@ -96,14 +96,13 @@ export default function ProfileForm() {
       });
 
       const result = await response.json();
-      console.log("Response from backend:", result);
 
       if (result.message === "No user found") {
         alert("Signup required");
         router.push("/auth/signup");
       }
 
-      if (result.message === "Message Recieved!" && result.profileId) {
+      if (result.message === "Message Recieved!" || result.message === "Updated" && result.profileId) {
         router.push(`/explore/profile/${result.profileId}`);
         setFormData(initialFormData);
         setSkillInput("");
