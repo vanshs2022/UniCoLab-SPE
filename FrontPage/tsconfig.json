@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Components/LandingPage/DarkGridHero.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Components/LandingPage/DarkGridHero.jsx", "Components/ScrollingTestimonials.jsx"],
   "exclude": ["node_modules"]
 }
