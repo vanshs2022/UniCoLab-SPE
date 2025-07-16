@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { motion } from "framer-motion";

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import BasicFAQ from '../../../Components/BasicFAQ'
 const page = () => {

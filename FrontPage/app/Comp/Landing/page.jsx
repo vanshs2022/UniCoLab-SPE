@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { DarkGridHero } from "../../../Components/DarkGridHero";
 const page = () => {
