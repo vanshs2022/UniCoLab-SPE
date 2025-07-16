@@ -4,10 +4,11 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 const connectDB = require("./config/db");
+const urls = require("./config/corsURL");
 
 const app = express();
 
-app.use(cors());
+app.use(cors(urls));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
