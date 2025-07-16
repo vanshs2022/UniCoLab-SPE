@@ -14,10 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 
-router.get("/ping", (req, res) => {
-  res.status(200).json({ status: "Backend awake" });
-});
-
 app.use("/api", routes);
 
 const PORT = process.env.PORT || 5000;

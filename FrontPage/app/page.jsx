@@ -7,13 +7,14 @@ import AboutUs from "./Comp/AboutUs/page";
 import Profiles from "./Comp/pROFILES/page";
 import Navbar from "./Comp/Navbar/page";
 import Contact from "./Comp/Contact/page";
+import { useEffect } from "react";
 
 const Page = () => {
 
   const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   useEffect(() => {
-    fetch(`${APP_URL}/ping`)
+    fetch(`${APP_URL}/api/ping`)
       .then((res) => res.json())
       .then((data) => console.log("Backend awake:", data))
       .catch((err) => console.error("Backend ping failed:", err));
