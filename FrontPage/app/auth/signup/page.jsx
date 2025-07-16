@@ -13,6 +13,7 @@ export default function page() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const router = useRouter();
+    const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
     const handleGoogleLogin = async () => {
         try{
@@ -20,7 +21,7 @@ export default function page() {
             const result = await signInWithPopup(auth, provider);
             const token = result.user.getIdToken();
             
-            await fetch("http://localhost:5000/api/auth", {
+            await fetch(`${APP_URL}/api/auth`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

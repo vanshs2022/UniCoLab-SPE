@@ -12,6 +12,7 @@ export default function page() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const router = useRouter();
+  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ export default function page() {
       const user = await signInWithEmailAndPassword(auth, email, password);
       const token = await user.user.getIdToken();
 
-      await fetch("http://localhost:5000/api/auth", {
+      await fetch(`${APP_URL}/api/auth`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -43,7 +44,7 @@ export default function page() {
       const result = await signInWithPopup(auth, provider);
       const token = result.user.getIdToken();
 
-      await fetch("http://localhost:5000/api/auth", {
+      await fetch(`${APP_URL}/api/auth`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

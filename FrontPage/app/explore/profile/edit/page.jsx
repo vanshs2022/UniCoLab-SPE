@@ -24,6 +24,7 @@ export default function ProfileForm() {
   const [skillInput, setSkillInput] = useState("");
   const [formKey, setFormKey] = useState(0);
   const [token, setToken] = useState("");
+  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   useEffect(() => {
     userAuthStatus().then(({ email, authenticated, token }) => {
@@ -35,7 +36,7 @@ export default function ProfileForm() {
         const fetchProfile = async (email) => {
           try {
             const response = await fetch(
-              "http://localhost:5000/api/profile/get",
+              `${APP_URL}/api/profile/get`,
               {
                 method: "POST",
                 headers: { "Content-Type": "application/json", "authorization" : `Bearer ${token}` },
@@ -89,7 +90,7 @@ export default function ProfileForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/profile/edit", {
+      const response = await fetch(`${APP_URL}/api/profile/edit`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "authorization" : `Bearer ${token}` },
         body: JSON.stringify(formData),

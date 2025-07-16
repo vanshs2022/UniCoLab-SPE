@@ -11,13 +11,14 @@ export default function Profiles() {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
+  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   useEffect(() => {
     async function fetchProfiles() {
       try {
         setLoading(true);
         const queryString = searchParams.toString();
-        const apiUrl = `http://localhost:5000/api/profile?${queryString}`;
+        const apiUrl = `${APP_URL}/api/profile?${queryString}`;
         const response = await fetch(apiUrl);
         const data = await response.json();
         setProfiles(data);

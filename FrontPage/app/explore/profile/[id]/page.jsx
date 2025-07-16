@@ -12,6 +12,7 @@ export default function ProfilePage() {
   const { id } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   useEffect(() => {
     userAuthStatus().then(({ email, authenticated, token }) => {
@@ -20,7 +21,7 @@ export default function ProfilePage() {
       } else {
         async function fetchProfile() {
           try {
-            const res = await fetch(`http://localhost:5000/api/profile/${id}`, {
+            const res = await fetch(`${APP_URL}/api/profile/${id}`, {
               headers: { authorization: `Bearer ${token}` },
             });
             if (!res.ok) throw new Error("Profile not found");

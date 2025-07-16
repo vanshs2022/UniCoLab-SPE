@@ -10,6 +10,7 @@ const ContactForm = () => {
     message: "",
   });
   const [status, setStatus] = useState(null);
+  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   // Handle input changes
   const handleChange = (e) => {
@@ -26,7 +27,7 @@ const ContactForm = () => {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`${APP_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

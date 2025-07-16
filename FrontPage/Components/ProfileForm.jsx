@@ -18,10 +18,12 @@ export default function ProfileForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/profile', {
+      const response = await fetch(`${APP_URL}/api/profile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
