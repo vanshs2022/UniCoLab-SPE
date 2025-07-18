@@ -15,28 +15,20 @@ export default function ProfilePage() {
   const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   useEffect(() => {
-    userAuthStatus().then(({ email, authenticated, token }) => {
-      if (!authenticated) {
-        router.push("/auth/login");
-      } else {
-        async function fetchProfile() {
-          try {
-            const res = await fetch(`${APP_URL}/api/profile/${id}`, {
-              headers: { authorization: `Bearer ${token}` },
-            });
-            if (!res.ok) throw new Error("Profile not found");
-            const data = await res.json();
-            setUser(data);
-          } catch (error) {
-            console.error(error);
-          } finally {
-            setLoading(false);
-          }
-        }
-
-        if (id) fetchProfile();
+    async function fetchProfile() {
+      try {
+        const res = await fetch(`${APP_URL}/api/profile/${id}`);
+        if (!res.ok) throw new Error("Profile not found");
+        const data = await res.json();
+        setUser(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
       }
-    });
+    }
+
+    if (id) fetchProfile();
   }, [id]);
 
   if (loading)
