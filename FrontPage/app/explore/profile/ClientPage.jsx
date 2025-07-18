@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link"; 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import SquishyCard from "../../../Components/SquishyCard";
 import Navbar from "../../Comp/Navbar/page";
@@ -32,12 +32,17 @@ export default function Profiles() {
     fetchProfiles();
   }, [searchParams]);
 
-  if (loading) {
-    return <p className="text-white text-center text-lg">Loading...</p>;
-  }
+  if (loading)
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-[#0a1030] font-inter">
+        <p className="text-white text-lg">Loading...</p>
+      </div>
+    );
 
   if (!profiles.length) {
-    return <p className="text-white text-center text-lg">No profiles available</p>;
+    return (
+      <p className="text-white text-center text-lg">No profiles available</p>
+    );
   }
 
   return (
@@ -46,7 +51,11 @@ export default function Profiles() {
       <HoverDevCards />
       <div className="profiles grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 p-6">
         {profiles.map((profile) => (
-          <Link key={profile._id} href={`/explore/profile/${profile._id}`} passHref>
+          <Link
+            key={profile._id}
+            href={`/explore/profile/${profile._id}`}
+            passHref
+          >
             <SquishyCard profile={profile} />
           </Link>
         ))}
