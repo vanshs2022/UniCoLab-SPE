@@ -85,7 +85,6 @@ const Navbar = () => {
             ) : (
               <button
                 onClick={() => { logoutUser(); setIsloggedIn(false); }}
-                
                 className="text-white hover:text-indigo-300 px-4 py-2 rounded-lg hover:bg-white/5 transition-colors"
               >
                 Log Out
