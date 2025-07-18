@@ -4,22 +4,20 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import userAuthStatus from "@/utils/authStatus";
-import { logoutUser } from '../../../utils/logout';
+import { logoutUser } from "../../../utils/logout";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoggedIn, setIsloggedIn] = useState(false);
   const [email, setEmail] = useState('');
 
-  // Handle resizing
   useEffect(() => {
-
-    userAuthStatus().then(({email, authenticated}) => {
-      if(!authenticated) setIsloggedIn(false);
-      else{
+    userAuthStatus().then(({ email, authenticated }) => {
+      if (!authenticated) setIsloggedIn(false);
+      else {
         setIsloggedIn(true);
         setEmail(email);
-      } 
+      }
     });
 
     const handleResize = () => {
@@ -31,10 +29,12 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (isMobileMenuOpen && !(event.target as HTMLElement).closest(".mobile-menu-container")) {
+      if (
+        isMobileMenuOpen &&
+        !(event.target as HTMLElement).closest(".mobile-menu-container")
+      ) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -67,19 +67,29 @@ const Navbar = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-2">
-            <Link
-              href="auth/login"
-              className="text-white hover:text-indigo-300 px-4 py-2 rounded-lg hover:bg-white/5 transition-colors"
-            >
-              Login
-            </Link>
-            <Link
-              href="auth/signup"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition-colors"
-            >
-              Sign Up
-            </Link>
-            <button onClick={logoutUser} className="text-white hover:text-indigo-300 px-4 py-2 rounded-lg hover:bg-white/5 transition-colors">Log Out</button>
+            {!isLoggedIn ? (
+              <>
+                <Link
+                  href="/auth/login"
+                  className="text-white hover:text-indigo-300 px-4 py-2 rounded-lg hover:bg-white/5 transition-colors"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/auth/signup"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition-colors"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <button
+                onClick={logoutUser}
+                className="text-white hover:text-indigo-300 px-4 py-2 rounded-lg hover:bg-white/5 transition-colors"
+              >
+                Log Out
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -98,7 +108,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={`md:hidden mobile-menu-container transition-all duration-300 ease-in-out fixed left-0 top-16 w-full z-[105] ${
-          isMobileMenuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+          isMobileMenuOpen
+            ? "max-h-[80vh] opacity-100"
+            : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
         <div className="bg-[#0A1032] border-t border-white/10 shadow-lg px-4 py-3 space-y-2 max-h-[80vh] overflow-y-auto">
@@ -110,18 +122,29 @@ const Navbar = () => {
 
           {/* Mobile Auth Buttons */}
           <div className="flex flex-col space-y-3 py-2">
-            <Link
-              href="/auth/login"
-              className="w-full text-center px-4 py-4 text-white border border-white/20 rounded-lg hover:bg-white/10 transition-colors text-lg"
-            >
-              Login
-            </Link>
-            <Link
-              href="/auth/signup"
-              className="w-full text-center px-4 py-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors text-lg"
-            >
-              Sign Up
-            </Link>
+            {!isLoggedIn ? (
+              <>
+                <Link
+                  href="/auth/login"
+                  className="w-full text-center px-4 py-4 text-white border border-white/20 rounded-lg hover:bg-white/10 transition-colors text-lg"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/auth/signup"
+                  className="w-full text-center px-4 py-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors text-lg"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <button
+                onClick={logoutUser}
+                className="w-full text-center px-4 py-4 text-white border border-white/20 rounded-lg hover:bg-white/10 transition-colors text-lg"
+              >
+                Log Out
+              </button>
+            )}
           </div>
         </div>
       </div>

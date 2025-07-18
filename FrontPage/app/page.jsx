@@ -24,6 +24,8 @@ const Page = () => {
   return (
     <div className="page">
       <Navbar />
+      <br></br>
+      <br></br>
       <Landing />
       <Mission />
       <Profiles />
