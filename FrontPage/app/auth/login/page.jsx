@@ -67,7 +67,7 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-indigo-950 px-4">
+    <div className="h-screen flex items-center justify-center bg-indigo-950 px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         <h2 className="text-3xl font-bold text-center text-indigo-900 mb-6">
           Login
