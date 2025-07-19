@@ -80,7 +80,7 @@ export default function Page() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full mt-1 px-4 py-2 border border-indigo-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full mt-1 px-4 py-2 text-black border border-indigo-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
           <div>
@@ -92,7 +92,7 @@ export default function Page() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full mt-1 px-4 py-2 border border-indigo-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full mt-1 px-4 py-2 text-black border border-indigo-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
           <button
