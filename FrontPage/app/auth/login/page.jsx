@@ -3,20 +3,22 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { auth } from "@/utils/auth";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
-export default function page() {
+export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
   const router = useRouter();
   const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       const token = await user.user.getIdToken();
@@ -42,7 +44,7 @@ export default function page() {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      const token = result.user.getIdToken();
+      const token = await result.user.getIdToken();
 
       await fetch(`${APP_URL}/api/auth`, {
         method: "POST",
@@ -65,55 +67,59 @@ export default function page() {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label>Email</label>
+    <div className="min-h-screen flex items-center justify-center bg-indigo-950 px-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
+        <h2 className="text-3xl font-bold text-center text-indigo-900 mb-6">
+          Login
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-indigo-800 font-medium">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              className="w-full mt-1 px-4 py-2 border border-indigo-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
-          <div className="input-group">
-            <label>Password</label>
+          <div>
+            <label className="block text-indigo-800 font-medium">
+              Password
+            </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              className="w-full mt-1 px-4 py-2 border border-indigo-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
-          <button type="submit" className="login-button">
+          <button
+            type="submit"
+            className="w-full bg-indigo-700 hover:bg-indigo-800 text-white font-semibold py-2 rounded-lg transition"
+          >
             Login
           </button>
         </form>
 
         <button
           onClick={handleGoogleLogin}
-          className="google-signin-button"
-          style={{
-            marginTop: "1rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.5rem",
-          }}
+          className="w-full mt-4 border border-gray-300 bg-white text-gray-800 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition"
         >
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            src="https://developers.google.com/identity/images/g-logo.png"
             alt="Google Icon"
-            width="20"
-            height="20"
+            className="w-4 h-4"
           />
-          Sign in with Google
+          <span className="text-sm font-medium">Sign in with Google</span>
         </button>
 
-        <p className="signup-link">
-          Don't have an account? <Link href="/auth/signup">Sign up</Link>
+        <p className="mt-4 text-center text-sm text-gray-600">
+          Don't have an account?{" "}
+          <Link href="/auth/signup" className="text-indigo-600 hover:underline">
+            Sign up
+          </Link>
         </p>
       </div>
     </div>
