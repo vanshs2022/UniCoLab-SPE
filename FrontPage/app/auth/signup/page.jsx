@@ -77,7 +77,7 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-indigo-950 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="h-screen bg-indigo-950 flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="bg-white shadow-xl rounded-2xl p-6 sm:p-8 w-full max-w-md sm:max-w-lg border border-indigo-100">
         <h2 className="text-2xl font-semibold text-indigo-800 mb-6 text-center">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
