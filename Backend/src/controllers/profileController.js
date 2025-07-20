@@ -64,5 +64,5 @@ exports.getFilteredProfiles = async (req, res) => {
 exports.getProfileById = async (req, res) => {
   const profile = await Profile.findById(req.params.id);
   res.send(profile);
-  await sendNotification(profile.username);
+  // await sendNotification(profile.username);
 };
