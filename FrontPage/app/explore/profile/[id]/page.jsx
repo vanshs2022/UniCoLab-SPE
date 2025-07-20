@@ -39,7 +39,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="overflow-y-hidden min-h-screen flex items-center justify-center bg-[#0a1030] px-6 font-inter">
+    <div className="min-h-screen flex items-center justify-center bg-[#0a1030] px-6 font-inter">
       <Navbar />
       <div className="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-lg border border-white border-opacity-10">
 
