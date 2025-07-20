@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import userAuthStatus from "@/utils/authStatus";
 import Navbar from "../../../Comp/Navbar/page";
 import Link from "next/link";
 import contact from "../../../../public/contact.png";
@@ -11,6 +12,7 @@ export default function ProfilePage() {
   const { id } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [edit, setEdit] = useState(false);
   const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
   useEffect(() => {
@@ -20,6 +22,11 @@ export default function ProfilePage() {
         if (!res.ok) throw new Error("Profile not found");
         const data = await res.json();
         setUser(data);
+        userAuthStatus().then(({ email, authenticated, token }) => {
+          if (email == data.username) {
+            setEdit(true);
+          }
+        });
       } catch (error) {
         console.error(error);
       } finally {
@@ -42,7 +49,6 @@ export default function ProfilePage() {
     <div className="min-h-screen flex items-center justify-center bg-[#0a1030] px-6 font-inter">
       <Navbar />
       <div className="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-lg border border-white border-opacity-10">
-
         {/* Top Section */}
         <div className="bg-white text-black flex flex-col md:flex-row items-center justify-between p-6 gap-6">
           <div className="flex items-center gap-4">
@@ -56,24 +62,28 @@ export default function ProfilePage() {
             </div>
             <div>
               <h1 className="text-xl font-bold">{user.name || "N/A"}</h1>
-              <p className="text-sm font-medium text-gray-700">{user.role || "Web Developer"}</p>
+              <p className="text-sm font-medium text-gray-700">
+                {user.role || "Web Developer"}
+              </p>
             </div>
           </div>
-          {/* <a href="/explore/profile/edit">
-          <button className="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm font-semibold hover:bg-indigo-700 transition">
-            Edit Profile
-          </button>
-          </a> */}
+          {edit && (
+            <a href="/explore/profile/edit">
+              <button className="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm font-semibold hover:bg-indigo-700 transition">
+                Edit Profile
+              </button>
+            </a>
+          )}
         </div>
 
         {/* Bottom Section */}
         <div className="bg-white bg-opacity-5 backdrop-blur-lg text-white p-8 flex flex-col gap-8">
-
           {/* Bio */}
           <div>
             <h3 className="font-semibold mb-2 text-base">Bio</h3>
             <p className="text-gray-300 text-sm">
-              {user.description || "Backend Engineer specializing in distributed systems."}
+              {user.description ||
+                "Backend Engineer specializing in distributed systems."}
             </p>
           </div>
 
@@ -83,7 +93,10 @@ export default function ProfilePage() {
             <div className="flex flex-wrap gap-3">
               {user.skills?.length > 0 ? (
                 user.skills.map((skill, index) => (
-                  <span key={index} className="text-sm px-4 py-1 bg-indigo-600 rounded-full font-medium">
+                  <span
+                    key={index}
+                    className="text-sm px-4 py-1 bg-indigo-600 rounded-full font-medium"
+                  >
                     {skill.name}
                   </span>
                 ))
@@ -121,12 +134,20 @@ export default function ProfilePage() {
           {/* GitHub + Resume */}
           <div className="text-base space-y-2">
             {user.githubLink && (
-              <Link href={user.githubLink} target="_blank" className="block text-blue-400 hover:underline">
+              <Link
+                href={user.githubLink}
+                target="_blank"
+                className="block text-blue-400 hover:underline"
+              >
                 GitHub Profile
               </Link>
             )}
             {user.resume && (
-              <Link href={user.resume} target="_blank" className="block text-blue-400 hover:underline">
+              <Link
+                href={user.resume}
+                target="_blank"
+                className="block text-blue-400 hover:underline"
+              >
                 Resume
               </Link>
             )}
@@ -146,6 +167,5 @@ export default function ProfilePage() {
         </div>
       </div>
     </div>
-
   );
 }
