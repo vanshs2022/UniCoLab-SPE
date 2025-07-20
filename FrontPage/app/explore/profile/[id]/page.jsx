@@ -59,9 +59,11 @@ export default function ProfilePage() {
               <p className="text-sm font-medium text-gray-700">{user.role || "Web Developer"}</p>
             </div>
           </div>
+          {/* <a href="/explore/profile/edit">
           <button className="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm font-semibold hover:bg-indigo-700 transition">
             Edit Profile
           </button>
+          </a> */}
         </div>
 
         {/* Bottom Section */}
