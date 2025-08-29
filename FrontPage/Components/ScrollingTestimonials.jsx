@@ -7,10 +7,10 @@ const ScrollingTestimonials = () => {
     <div className="bg-slate-950 py-12">
       <div className="mb-8 px-4">
         <h3 className="text-slate-50 text-4xl font-semibold text-center">
-          Peoples Openion About US
+          Peoples Opinion About US
         </h3>
         <p className="text-center text-slate-300 text-sm mt-2 max-w-lg mx-auto">
-          The priorties the the reviews of users more than the database as they help to grow and improve the team.
+          The priorties the reviews of users more than the database as they help to grow and improve the team.
         </p>
       </div>
       <div className="p-4 overflow-x-hidden relative">
